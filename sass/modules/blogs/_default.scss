@@ -1,0 +1,28 @@
+.mh-news-article{
+   @include respond-to(medium){
+      margin-bottom: 35px;
+   }
+   margin-bottom: 55px;
+}
+.article__grid-image {
+   .js &{
+      position: relative;
+      top: unset;
+   }
+   &.fixed-height{
+      max-height: 350px;
+      object-fit: cover;
+   }
+}
+.article__date{
+   margin-bottom: 10px;
+}
+.more-link{
+   padding-left: 3px;
+   border-bottom-color:  transparent !important;
+   @include hover-content{
+      border-bottom-color:  $red !important;
+      color: $red !important;
+
+   }
+}

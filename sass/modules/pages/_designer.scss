@@ -1,0 +1,24 @@
+div#designer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+h2.d-title{
+	color: $gray;
+	@include transition();
+}
+.designer-content:hover h2 {
+    color: #000;
+}
+li.site-designer__linklist-item {
+	a {
+	    padding-bottom: 10px;
+	    display: inline-block;
+	    color: $gray;
+	    @include transition();
+	    @include hover($red);
+	}
+}
+.designer-content {
+    margin-bottom: 35px;
+}

@@ -1,0 +1,65 @@
+{% assign accordion_title = 'Warranty & Return Policy' %}
+{% capture item1_content %}
+  <div class="accordion_content">
+    <p>Put this piece to the test on your next trip and make sure it’s right for you—if not, you can return it anytime within the first 100 days of purchase.</p>
+    <p>Our suitcases are guaranteed by a limited warranty that covers any damage to the shell, wheels, handles, zippers, and many other functional elements of our luggage.
+      <a target="_blank" href="/pages/contact-us">
+        Learn more about our warranty</a>.</p>
+    <p>Keep in mind that while personalized items cannot be returned or exchanged, they are still covered by our warranties. For shipping info, see our
+      <a target="_blank" href="/pages/faqs">FAQ</a>.</p>
+  </div>
+{% endcapture %}
+
+
+{% if product.metafields.custom.size_details.value != blank %}
+  {%- capture size -%}
+    <div class="cc-accordion-item__content rte cf">
+      <div class="accordion_content">
+        {% liquid
+          assign icon_text = product.metafields.custom.size_details.value.icon_with_text.value
+        %}
+        {% if icon_text %}
+          <div class="product_feature_icons col-{{ col.handle }}">
+            {% for i in (1..6) %}
+              {%- capture icon -%}icon_{{ i }}{%- endcapture -%}
+              {%- capture text -%}text_{{ i }}{%- endcapture -%}
+              {% if icon_text[text].value and icon_text[icon].value %}
+                <div class="flex align-items-center product_feature_icon product_feature_icon_{{ forloop.index }}">
+                  <img
+                    src="{{ icon_text[icon].value | image_url }}"
+                    width="{{ icon_text[icon].value.width | default: 'auto' }}"
+                    height="{{ icon_text[icon].value.height | default: 'auto' }}"
+                    loading="lazy"
+                    alt="{{ icon_text[text] | default: product.title }}"
+                    class="product_feature_icons_image">
+                  <div class="product_feature_icon_text">
+                    {{ icon_text[text].value }}
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+        <div class="accrodion-lists size_details-lists my-4">
+          {{ product.metafields.custom.size_details.value.list | metafield_tag }}
+        </div>
+        <div class="my-2 size_details-details">
+          {{ product.metafields.custom.size_details.value.details | metafield_tag }}
+        </div>
+      </div>
+    </div>
+
+  {%- endcapture -%}
+  {% render 'accordion'
+   , allow_multi_open: true,
+   add_content_class: 'rte cf',
+   first_item_open: false,
+   item1_title: 'Size & Details',
+   item1_content: size %}
+{% endif %}
+{% render 'accordion'
+ , allow_multi_open: true,
+ add_content_class: 'rte cf',
+ first_item_open: false,
+ item1_title: accordion_title,
+ item1_content: item1_content %}

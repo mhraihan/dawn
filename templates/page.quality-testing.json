@@ -1,0 +1,166 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "full_width": false
+      }
+    },
+    "7fae3757-3094-40a3-8f2f-f4ce9333f365": {
+      "type": "rich-text",
+      "blocks": {
+        "template--18204062515510__7fae3757-3094-40a3-8f2f-f4ce9333f365-1677801967cc56d69f-0": {
+          "type": "heading",
+          "settings": {
+            "title": "Our quality",
+            "title_size": "h1-style",
+            "use_h1": false,
+            "heading_highlight_text": "quality",
+            "heading_highlight_font": true,
+            "heading_highlight_stencil": false,
+            "heading_highlight_color": "#ffffff",
+            "heading_highlight_gradient": ""
+          }
+        },
+        "template--18204062515510__7fae3757-3094-40a3-8f2f-f4ce9333f365-1677801967cc56d69f-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A lot goes on behind the scenes to create our <em><strong>extraordinary luggage.<\/strong><\/em><\/p>",
+            "enlarge_text": true
+          }
+        }
+      },
+      "block_order": [
+        "template--18204062515510__7fae3757-3094-40a3-8f2f-f4ce9333f365-1677801967cc56d69f-0",
+        "template--18204062515510__7fae3757-3094-40a3-8f2f-f4ce9333f365-1677801967cc56d69f-1"
+      ],
+      "settings": {
+        "height": "large",
+        "text_alignment": "center",
+        "color_scheme": "2",
+        "full_width": false
+      }
+    },
+    "3e0d5bdc-7e2d-4c43-a44b-a6f82c74182d": {
+      "type": "media-with-text",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/running-test.gif",
+        "image_link": "",
+        "video": "",
+        "autoplay": true,
+        "content_max_width": 800,
+        "subheading": "",
+        "title": "Running Test",
+        "title_size": "h1-style",
+        "use_h1": false,
+        "text": "<p>This test is run for the equivalent of 25km. The suitcase is loaded with up to 20kg and placed on a treadmill\/running machine at a speed equivalent to 5 km\/h. The surface has bumps and ridges to simulate uneven terrain.<\/p>",
+        "enlarge_text": true,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "text_alignment": "left",
+        "media_position": "left",
+        "enable_media_spacing": false,
+        "media_shape": "1",
+        "color_scheme": "1",
+        "heading_highlight_text": "",
+        "heading_highlight_font": true,
+        "heading_highlight_stencil": false,
+        "heading_highlight_color": "rgba(0,0,0,0)",
+        "heading_highlight_gradient": ""
+      }
+    },
+    "88be410d-33c3-4436-8b80-f7ed20379524": {
+      "type": "collection-list",
+      "disabled": true,
+      "blocks": {
+        "fdb9d3ed-6ae8-45d3-9ac7-f5e347c9e217": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": ""
+          }
+        },
+        "c7ca0d60-ea1d-463d-b3fc-69b02f9cbc23": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "fdb9d3ed-6ae8-45d3-9ac7-f5e347c9e217",
+        "c7ca0d60-ea1d-463d-b3fc-69b02f9cbc23"
+      ],
+      "settings": {
+        "title": "Collection list",
+        "show_title": false,
+        "enable_carousel": true,
+        "grid": 4
+      }
+    },
+    "7fab2092-c4fc-4792-941c-7ad7a41c254d": {
+      "type": "rich-text",
+      "blocks": {
+        "template--18204062515510__7fab2092-c4fc-4792-941c-7ad7a41c254d-1677801967cc56d69f-0": {
+          "type": "heading",
+          "settings": {
+            "title": "Shop our collection",
+            "title_size": "h1-style",
+            "use_h1": false,
+            "heading_highlight_text": "",
+            "heading_highlight_font": true,
+            "heading_highlight_stencil": false,
+            "heading_highlight_color": "rgba(0,0,0,0)",
+            "heading_highlight_gradient": ""
+          }
+        },
+        "template--18204062515510__7fab2092-c4fc-4792-941c-7ad7a41c254d-1677801967cc56d69f-1": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "template--18204062515510__7fab2092-c4fc-4792-941c-7ad7a41c254d-1677801967cc56d69f-0",
+        "template--18204062515510__7fab2092-c4fc-4792-941c-7ad7a41c254d-1677801967cc56d69f-1"
+      ],
+      "settings": {
+        "height": "medium",
+        "text_alignment": "center",
+        "color_scheme": "1",
+        "full_width": false
+      }
+    },
+    "3a993e7b-7b49-4576-a6ed-2b7947cf6e3c": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured collection",
+        "show_title": false,
+        "collection": "voyager-collection",
+        "show_vendor": false,
+        "enable_carousel": true,
+        "grid": 4,
+        "rows": 1,
+        "show_title_card": false,
+        "show_title_card_image": false,
+        "title_card_image": "shopify:\/\/shop_images\/crosssss.jpg",
+        "image_position": "center center",
+        "overlay_style": "shadow",
+        "color_scheme": "1"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "7fae3757-3094-40a3-8f2f-f4ce9333f365",
+    "3e0d5bdc-7e2d-4c43-a44b-a6f82c74182d",
+    "88be410d-33c3-4436-8b80-f7ed20379524",
+    "7fab2092-c4fc-4792-941c-7ad7a41c254d",
+    "3a993e7b-7b49-4576-a6ed-2b7947cf6e3c"
+  ]
+}

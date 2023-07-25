@@ -1,0 +1,80 @@
+// faq pages
+.faqs-list{
+    @include respond-to(medium){
+        margin-bottom: 30px;
+    }
+}
+li.faq-list-item {
+    padding-bottom: 5px;
+    a {
+        @include hover($red);
+    }
+
+    &.ui-state-active {
+        a {
+            color: $red;
+        }
+    }
+}
+
+.mh-faq {
+    @include respond-to(larger) {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+}
+
+.faq-list-content {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+.faq-question-item {
+    margin-bottom: 30px;
+
+    @include respond-to(larger) {
+        max-width: 75%;
+    }
+}
+
+.faq-answer {
+    display: none;
+}
+
+.active.faq-answer {
+    display: block;
+}
+
+.faq-active {
+    .faq-answer {
+        display: block;
+    }
+
+    .faq-question {
+        color: $red;
+
+        svg {
+            transform: rotate(0deg);
+        }
+    }
+}
+
+h2.faq-question {
+    font-weight: 400;
+    font-family: "Futura LT BT";
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include hover($red);
+
+    svg {
+        @include transition;
+
+        transform: rotate(180deg);
+    }
+}

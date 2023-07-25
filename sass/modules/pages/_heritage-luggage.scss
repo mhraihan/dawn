@@ -1,0 +1,354 @@
+// .heritage-luggage {
+//   margin-left: -5px;
+//   margin-right: -5px;
+// }
+.template-suffix-heritage-luggage {
+  .main-container.container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .section-image-with-text-overlay {
+    margin: 0;
+  }
+}
+.bg {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.logo-with-bg {
+  min-height: 850px;
+  max-height: calc(100vh - 133px);
+}
+
+img.page-logo {
+  width: 200px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  padding: 85px 0;
+}
+
+.logo-main-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    max-width: 850px;
+  }
+}
+/* background Image with text */
+@mixin effect(
+  $url:
+    "https://cdn.shopify.com/s/files/1/1556/0287/files/CleanShot_2023-05-31_at_11.45.57_430x.png?v=1685511991#"
+) {
+  /* background-image: url(https://cdn.shopify.com/s/files/1/1556/0287/files/CleanShot_2023-05-31_at_11.45.57_430x.png?v=1685511991#); */
+  background-image: url($url);
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-text-container {
+  // max-width: 1160px;
+  margin: 0 auto;
+  @include respond-to(tablet) {
+    // max-width: 1024px;
+    width: 100%;
+  }
+}
+.bg-text {
+  padding: 0 30px;
+  @include respond-to(xipad) {
+    padding: 0 15px;
+  }
+}
+.bg-with-text {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  padding: 50px 0;
+  z-index: 2;
+  margin-bottom: -15px;
+}
+.bg-text-container {
+  height: 100%;
+}
+.bg-subtitle {
+  @include effect();
+  font-family: "EightiesComeback";
+  font-size: 40px;
+  color: #0f100a;
+  @include respond-to(tablet) {
+    font-size: 35px;
+  }
+  @include respond-to(xipad) {
+    font-size: 30px;
+  }
+}
+.bg-title-image {
+  max-width: 65%;
+  margin: 10px auto;
+  @include respond-to(medium) {
+    max-width: 90%;
+  }
+}
+.bg-title {
+  @include effect();
+  font-family: EightiesComeback;
+  font-size: 80px;
+  font-weight: 600;
+  color: #0f100a;
+  line-height: 0.9;
+  margin-bottom: 15px;
+  margin-top: 25px;
+  @include respond-to(tablet) {
+    font-size: 70px;
+  }
+  @include respond-to(xipad) {
+    font-size: 60px;
+  }
+  i {
+    font-weight: 500;
+  }
+  p {
+    margin-bottom: 0px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+.bg-richtext {
+  @include effect();
+  font-family: EightiesComeback;
+  font-size: 40px;
+  color: #0f100a;
+  position: relative;
+  z-index: 2;
+  font-weight: 600;
+  @include respond-to(tablet) {
+    font-size: 33px;
+  }
+  @include respond-to(xipad) {
+    font-size: 30px;
+  }
+  b,
+  strong {
+    font-weight: 600;
+    color: #fff;
+    @include effect(
+      "https://cdn.shopify.com/s/files/1/1556/0287/files/CleanShot_2023-06-01_at_05.45.50_430x.png?v=1685576794#"
+    );
+  }
+}
+.bg-text-richtext {
+  @include effect();
+  font-size: 40px;
+  text-align: left;
+  max-width: max-content;
+  color: #0f100a;
+  font-weight: 400;
+  padding-right: 30px;
+  font-family: EightiesComeback;
+  @include respond-to(tablet) {
+    font-size: 35px;
+    padding-right: 0;
+    padding-left: 30px;
+  }
+  @include respond-to(xipad) {
+    font-size: 30px;
+  }
+  p {
+    margin-bottom: 0;
+  }
+}
+.bg-text-image {
+  img {
+    // max-width: 600px;
+    top: -110px;
+    z-index: 0;
+    position: relative;
+    // right: -235px;
+    width: calc(100% - 140px);
+    @media (min-width: 1240px) and (max-width: 1540px) {
+      // max-width: 450px;
+      // right: -160px;
+    }
+    @include respond-to(tablet) {
+      // max-width: 370px;
+      right: 0px;
+      top: -85px;
+      width: calc(100% - 110px);
+    }
+    @media (min-width: 1100px) and (max-width: 1239px) {
+      // max-width: 425px;
+      // right: -53px;
+    }
+    @include respond-to(xipad) {
+      // max-width: 350px;
+      top: -80px;
+
+      // right: -20px;
+      width: 100%;
+    }
+    @include respond-to(medium) {
+      width: 100%;
+    }
+  }
+}
+.bg-text-image2 {
+  padding-right: 5%;
+  @include respond-to(medium) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+/* image row */
+.image-row {
+  padding: 60px 0 100px 0;
+  // margin-top: -50px;
+  z-index: 1;
+}
+.w-half {
+  width: 50%;
+}
+
+.image-text-image2 {
+  padding: 0 5%;
+}
+
+.image-text-image2 {
+  //   max-width: 650px;
+  object-fit: contain;
+}
+
+/* image with text */
+
+.image-text-logo {
+  position: absolute;
+  width: 150px;
+  top: -37.5px;
+  right: -37.5px;
+  @include respond-to(xxmedium) {
+    right: 15px;
+  }
+}
+.text-image {
+  img {
+    @include respond-to(xxmedium) {
+      max-width: 88%;
+    }
+  }
+}
+.text-with-image {
+  padding: 100px 0;
+}
+
+.image-with-text {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.text-richtext {
+  color: #d54c23;
+  font-size: 30px;
+  max-width: 350px;
+  padding-right: 30px;
+  font-family: "EightiesComeback";
+  font-weight: 300;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* line and size */
+.line-size {
+  min-height: 850px;
+}
+.line-size-container {
+  height: 100%;
+  max-width: 850px;
+  margin: auto;
+}
+.line-size-title {
+  color: #e3d6a6;
+  font-family: "EightiesComeback";
+  text-transform: none;
+  font-size: 60px;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 80px;
+  @include respond-to(samll) {
+    font-size: 40px;
+    padding: 40px 20px;
+  }
+}
+
+.buttons {
+  margin: 50px auto 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  font-family: "EightiesComeback";
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.line-button {
+  width: calc(33.33% - 30px);
+  @include respond-to(medium) {
+    width: calc(50% - 30px);
+  }
+  @include respond-to(small) {
+    // width: calc(1003% - 30px);
+    font-size: 16px;
+  }
+  text-align: center;
+  border: 2px solid #33231f;
+  border-radius: 50px;
+  padding: 5px 10px;
+  color: #f9f7fa;
+  transition: 0.25s;
+  &.active {
+    border-color: #f9f7fa;
+    background-color: #f9f7fa;
+    color: #33231f;
+  }
+  @include hover-content() {
+    border-color: #f9f7fa;
+    background-color: #f9f7fa;
+    color: #33231f;
+  }
+}
+
+/* video section */
+.video-row {
+  // padding: 50px 0;
+  padding: 60px 0 100px;
+}
+.video-image {
+  max-width: 90%;
+  margin: 0 auto;
+}
+.gap-100 {
+  gap: 100px;
+  @include respond-to(medium) {
+    gap: 40px;
+  }
+}
+.mobile-full {
+  @include respond-to(medium) {
+    width: 100%;
+  }
+}

@@ -1,0 +1,104 @@
+/* Instagram version two */
+.instagram-gallery-heading {
+    margin-bottom: 35px;
+    font-size: 30px;
+    letter-spacing: 0;
+    @include respond-to(medium){
+     a{
+        font-size: 20px;
+     }
+    }
+}
+#mh-instagram-container {
+    padding-top: 0.9375rem;
+    padding-bottom: 0.9375rem;
+    max-width: 100%;
+    margin: 0 auto;
+    @include respond-to(medium){
+      max-width:100%;
+    }
+
+    #instagram {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+    .insta-background{
+      img{
+         opacity: 0;
+      }
+    }
+
+    .box {
+        padding-left: 0.9375rem;
+        padding-right: 0.9375rem;
+        flex: 1 25%;
+        overflow: hidden;
+        @include respond-to(medium) {
+            flex: 1 50%;
+            width: 50%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    figure {
+        display: block;
+        margin: 20px auto;
+        position: relative;
+        background-position: center;
+        background-size: cover;
+
+        &:hover {
+            figcaption {
+               @include respond-to(large){
+                 opacity: 1;
+                 visibility: visible;
+               }
+            }
+        }
+
+        img {
+            width: 300px;
+            height: 300px;
+        }
+
+        figcaption {
+            cursor: pointer;
+            pointer-events: none;
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            transition: all 0.5s ease 0s;
+
+            /* transform: translateY(50%); */
+            height: 100%;
+
+            p {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #fff;
+                padding: 0 20px;
+                font-size: 0.75rem;
+                font-weight: 300;
+            }
+
+        }
+        a {
+             width: 100%;
+             display: block;
+             height: 100%;
+         }
+    }
+}
+a.profileLink {
+    margin-bottom: 15px;
+    display: inline-block;
+}

@@ -1,0 +1,231 @@
+<div
+  class="header-topbar my-2 mx-3 px-2"
+>
+  <div class="container-fluid">
+    <div class="align-items-center justify-content-between row ">
+      <div class="col-12 col-md-6 ">
+        <div id="weather-container" class="flex align-items-center justify-content-md-start justify-content-center">
+          <img src="{{ 'Sun Hot.png' | asset_url }}" alt="Sun Hot" width="24" height="24" loading="lazy">
+          <span id="city" class="px-1">Sydney</span>
+          <span id="clock">{{ 'now' | date: '%I:%M%p' }}</span>
+          <span>, </span>
+          <span id="weather" class="pl-1"></span>
+        </div>
+      </div>
+      <div class="col-6 hidden-sm">
+        <ul class="align-items-center justify-content-end row uppercase">
+          <li
+            class="align-items-center flex pr-5"
+            style=""
+          >
+            <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" style="width:16px;height:16px;">
+              <g fill="none" fill-rule="evenodd"><g transform="translate(1 1)" stroke="currentColor"><circle cx="10.364" cy="10.364" r="10.364"></circle><path stroke-linecap="square" d="m18 18 5.777 5.788"></path></g></g>
+            </svg>
+            <span class="pl-1 hidden-sm"> Search</span>
+          </li>
+          <li>
+            {% if shop.customer_accounts_enabled %}
+              {% if customer %}
+                <a
+                  class="header-account-link"
+                  href="{{ routes.account_url }}"
+                  aria-label="{{ 'layout.customer.account' | t }}"
+                >
+                  <span class="header-account-link__text desktop-only hidden-sm">
+                    {{- 'layout.customer.account' | t -}}
+                  </span>
+                </a>
+              {% else %}
+                <a
+                  class="header-account-link"
+                  href="{{ routes.account_login_url }}"
+                  aria-label="{{ 'layout.customer.account' | t }}"
+                >
+                  <span class="header-account-link__text desktop-only hidden-sm">Login</span>
+                </a>
+              {% endif %}
+            {% endif %}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% javascript %}
+  function displayCity(cityName, temperature) {
+    // Update city name and temperature in the DOM
+    if (temperature) {
+      window
+        .jQuery('#weather-container')
+        .fadeOut('slow', function () {
+          document.getElementById('city').innerHTML = cityName;
+          document.getElementById('weather').innerHTML = temperature + '°C';
+        })
+        .delay(250)
+        .fadeIn()
+        .promise()
+        .done(function () {
+          // additional actions to perform after animation completes
+        });
+    } else {
+      console.error('temperature is null for ' + cityName);
+    }
+  }
+  const apiKey = '3dc8429b48a3c20d708348838dbf293f';
+  let cities = {
+    2147714: {
+      name: 'Sydney',
+      temperature: null,
+    },
+    2158177: {
+      name: 'Melbourne',
+      temperature: null,
+    },
+    2174003: {
+      name: 'Brisbane',
+      temperature: null,
+    },
+    2063523: {
+      name: 'Perth',
+      temperature: null,
+    },
+    2172517: {
+      name: 'Canberra',
+      temperature: null,
+    },
+    2078025: {
+      name: 'Adelaide',
+      temperature: null,
+    },
+    2073124: {
+      name: 'Darwin',
+      temperature: null,
+    },
+    2163355: {
+      name: 'Hobart',
+      temperature: null,
+    },
+    2165087: {
+      name: 'Gold Coast',
+      temperature: null,
+    },
+    2172797: {
+      name: 'Cairns',
+      temperature: null,
+    },
+  };
+
+  // array of city IDs
+
+  const cityIds = Object.keys(cities);
+  if (Cookies.get('cities')) {
+    cities = JSON.parse(Cookies.get('cities'));
+    displayCity(cities[2147714]['name'], cities[2147714]['temperature']);
+  } else {
+    cityIds.forEach((cityId, index, arr) => {
+      fetch(`https://api.openweathermap.org/data/2.5/weather?id=${cityId}&appid=${apiKey}&units=metric`)
+        .then((response) => response.json())
+        .then((data) => {
+          const cityName = data.name;
+          const temperature = data.main.temp;
+          cities[cityId]['temperature'] = temperature;
+          // cities[cityId]['weather'] = weather;
+          // console.log(`${index} ${arr.length} Current temperature in ${cityName} is ${temperature} degrees Celsius.`);
+          if (cityId == 2147714) {
+            displayCity(cityName, temperature);
+          }
+
+          if (index === arr.length - 1) {
+            setTimeout(() => {
+              Cookies.set('cities', JSON.stringify(cities), { expires: 1 / 24 });
+            }, 1000);
+          }
+        })
+        .catch((error) => {
+          console.log(`Failed to retrieve weather data for city with ID ${cityId}:`, error);
+        });
+    });
+  }
+
+  if (typeof Worker !== 'undefined') {
+    // Web Worker is supported
+    var clockWorker = new Worker(
+      URL.createObjectURL(
+        new Blob(
+          [
+            `
+          let count = 1;
+          let cityIndex = 1;
+          let cityIds;
+   
+          onmessage = function(event) {
+            cityIds = event.data;
+                // Update the clock every second
+          setInterval(displayTime, 1000);
+          };
+
+          function displayTime() {
+            let now = new Date();
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+            let meridiem = "AM";
+           
+            // Convert to 12-hour format
+            if (hours > 12) {
+              hours -= 12;
+              meridiem = "PM";
+            }
+
+            // Pad with leading zeros if needed
+            if (hours < 10) {
+              hours = "0" + hours;
+            }
+            if (minutes < 10) {
+              minutes = "0" + minutes;
+            }
+            if (seconds < 10) {
+              seconds = "0" + seconds;
+            }
+            // Display the time
+            let timeString = hours + ":" + minutes + " " + meridiem;
+             
+            postMessage({ type: 'clock', timeString: timeString });
+            // change the weather
+            count++;
+            if(count == 5){
+              count = 0;
+              const city = cityIds[cityIndex % cityIds.length];
+           
+              cityIndex++;
+              postMessage({ type: 'update', city: city });
+            }
+
+            
+          }
+      
+        `,
+          ],
+          { type: 'text/javascript' }
+        )
+      )
+    );
+    clockWorker.postMessage(cityIds);
+
+    // Listen for messages from the web worker
+    clockWorker.onmessage = function (event) {
+      if (event.data.type === 'update') {
+        // Update the DOM with the received data
+        // console.log(event.data.city, event.data);
+        displayCity(cities[event.data.city]['name'], cities[event.data.city]['temperature']);
+      }
+
+      if (event.data.type === 'clock') {
+        document.getElementById('clock').innerHTML = event.data.timeString;
+      }
+    };
+  } else {
+    // Web Worker is not supported
+    console.log('Web Worker is not supported by your browser.');
+  }
+{% endjavascript %}

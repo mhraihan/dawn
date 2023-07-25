@@ -1,0 +1,106 @@
+{
+  "sections": {
+    "compared": {
+      "type": "page-compare",
+      "blocks": {
+        "de67513a-3ab6-4163-b674-1796181f3adc": {
+          "type": "compare",
+          "settings": {
+            "title": "The Carry-On",
+            "show-length-subtitle": false,
+            "show-capacity-subtitle": false,
+            "show-carry-on-subtitle": false,
+            "show-key-features-1": true,
+            "show-key-features-2": true,
+            "show-key-features-3": true,
+            "show-key-features-4": false,
+            "product1": "gbl005",
+            "product2": "gbl007",
+            "product3": "gbl006"
+          }
+        },
+        "5e232a16-03aa-4bc2-840c-eecd99abe39d": {
+          "type": "compare",
+          "settings": {
+            "title": "The Carry-On Flex",
+            "show-length-subtitle": true,
+            "show-capacity-subtitle": true,
+            "show-carry-on-subtitle": false,
+            "show-key-features-1": true,
+            "show-key-features-2": true,
+            "show-key-features-3": false,
+            "show-key-features-4": true,
+            "product1": "gbl004",
+            "product2": "",
+            "product3": ""
+          }
+        },
+        "2c765673-8c51-49a1-a0bb-4f10321e2a49": {
+          "type": "compare",
+          "settings": {
+            "title": "The Bigger Carry-On",
+            "show-length-subtitle": false,
+            "show-capacity-subtitle": false,
+            "show-carry-on-subtitle": true,
+            "show-key-features-1": true,
+            "show-key-features-2": true,
+            "show-key-features-3": true,
+            "show-key-features-4": false,
+            "product1": "leather-luggage-tag-desert-claret",
+            "product2": "leather-luggage-tag-flinders-tan",
+            "product3": ""
+          }
+        },
+        "cf65c924-b49a-4ac3-bb21-f57319a43a7f": {
+          "type": "compare",
+          "settings": {
+            "title": "The Bigger Carry-On Flex",
+            "show-length-subtitle": true,
+            "show-capacity-subtitle": true,
+            "show-carry-on-subtitle": true,
+            "show-key-features-1": true,
+            "show-key-features-2": true,
+            "show-key-features-3": false,
+            "show-key-features-4": true,
+            "product1": "leather-luggage-tag-barossa-mulberry",
+            "product2": "",
+            "product3": ""
+          }
+        }
+      },
+      "block_order": [
+        "de67513a-3ab6-4163-b674-1796181f3adc",
+        "5e232a16-03aa-4bc2-840c-eecd99abe39d",
+        "2c765673-8c51-49a1-a0bb-4f10321e2a49",
+        "cf65c924-b49a-4ac3-bb21-f57319a43a7f"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/capacity-all.jpg",
+        "length-icon": "shopify:\/\/shop_images\/trip.svg",
+        "length-title": "3-5 days",
+        "length-subtitle": "when suitcase is expanded",
+        "capacity-icon": "shopify:\/\/shop_images\/Capacity.svg",
+        "capacity-title": "5-7 outfits",
+        "capacity-subtitle": "when suitcase is expanded",
+        "carry-on-icon": "shopify:\/\/shop_images\/fly.svg",
+        "carry-on-title": "Fits almost any flight",
+        "carry-on-subtitle": "when suitcase is not expanded",
+        "key-features-icon-1": "shopify:\/\/shop_images\/Carry-on_ready.svg",
+        "key-features-title-1": "360° spinner wheels",
+        "key-features-subtitle-1": "",
+        "key-features-icon-2": "shopify:\/\/shop_images\/combination_lock.svg",
+        "key-features-title-2": "TSA-approved combination lock",
+        "key-features-subtitle-2": "",
+        "key-features-icon-3": "shopify:\/\/shop_images\/USB_charger.svg",
+        "key-features-title-3": "Ejectable USB charger option",
+        "key-features-subtitle-3": "select colors and styles",
+        "key-features-icon-4": "shopify:\/\/shop_images\/Zipper.svg",
+        "key-features-title-4": "Zipper expansion of 2.25\"",
+        "key-features-subtitle-4": ""
+      }
+    }
+  },
+  "order": [
+    "compared"
+  ]
+}

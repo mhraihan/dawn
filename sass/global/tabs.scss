@@ -1,0 +1,42 @@
+.nav-tabs {
+   border-bottom: 2px solid #333;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   .template-product &{
+      justify-content: flex-start;
+   }
+
+   > li {
+      &.active {
+         a {
+            border: none;
+            border-bottom-color: transparent;
+            text-decoration: line-through;
+            color: #333;
+            @include hover(#333);
+            @include hover-content() {
+               background-color: transparent;
+               border-bottom-color: transparent;
+               text-decoration: line-through;
+               border-color: transparent;
+               border: none;
+            }
+         }
+      }
+
+      > a {
+         border-radius: 0 !important;
+         text-transform: uppercase;
+         font-weight: 700;
+         @include hover(#333);
+         @include hover-content() {
+            background-color: transparent;
+            border-bottom-color: transparent;
+            text-decoration: line-through;
+            border-color: transparent;
+            border: none;
+         }
+      }
+   }
+}

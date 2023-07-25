@@ -1,0 +1,151 @@
+<hr class="section_line">
+<div class="container-md">
+  <h2 class="page-title text-center mb-4">
+    {{ section.settings.title }}
+  </h2>
+  <div class="page-description text-center mb-4">
+    {{ section.settings.richtext }}
+  </div>
+  <div class="page-description2 text-center mb-4">
+    {{ section.settings.subtitle }}
+  </div>
+  <div class="compare-ariline my-5">
+    <table class="airlines_compare w-full">
+      <thead>
+        <tr>
+          <td>
+            <div class="airline-table-icon"></div>
+            <div></div>
+          </td>
+          {% for i in (1..2) %}
+            {%- capture icon -%}icon{{i}}{%- endcapture -%}
+            {%- capture title -%}title{{i}}{%- endcapture -%}
+            <td>
+              {% if section.settings[icon] %}
+                <div class="airline-table-icon">
+                  <img
+                    src="{{ section.settings[icon] | image_url }}"
+                    alt="{{ section.settings[title] }}"
+                    width="{{ section.settings[icon].width }}"
+                    height="{{ section.settings[icon].height }}"
+                    loading="lazy"
+                  >
+                </div>
+              {% endif %}
+              {% if section.settings[title] %}
+                <div class="font-normal">
+                  {{ section.settings[title] }}
+                </div>
+              {% endif %}
+            </td>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for block in section.blocks %}
+          {% if block.settings.title != blank %}
+            <tr>
+              <td>
+                {{ block.settings.title }}
+              </td>
+              <td class="{% if block.settings.show1 != blank %}airlineRowCheckmark {% endif %}"></td>
+              <td class="{% if block.settings.show2 != blank %}airlineRowCheckmark {% endif %}"></td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="airlineContact text-xs my-3">
+    {{ section.settings.contact }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Airline Comapre",
+  "class": "page-carry-ons-ariline",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header Information"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "richtext",
+      "label": "Information"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Extra Information"
+    },
+    {
+      "type": "header",
+      "content": "Table header"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon1",
+      "label": "Icon 1"
+    },
+    {
+      "type": "text",
+      "id": "title1",
+      "label": "Icon Title 1",
+      "default": "The Carry on"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon2",
+      "label": "Icon 2"
+    },
+    {
+      "type": "text",
+      "id": "title2",
+      "label": "Icon Title 2",
+      "default": "The Bigger Carry on"
+    },
+    {
+      "type": "header",
+      "content": "Table Footer"
+    },
+    {
+      "type": "richtext",
+      "id": "contact",
+      "label": "Contact Information"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Airline",
+      "type": "airline",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Airline Name"
+        },
+        {
+          "type": "checkbox",
+          "id": "show1",
+          "label": "Show Airline 1?",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show2",
+          "label": "Show Airline 2?",
+          "default": true
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,27 @@
+/* wishlist */
+.wishlist > a {
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+.wishlist-not-add {
+    img {
+        &:last-child {
+            display: none;
+        }
+    }
+
+    &.wishlist-added {
+        img {
+            &:first-child {
+                display: none;
+            }
+
+            &:last-child {
+                display: block;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}

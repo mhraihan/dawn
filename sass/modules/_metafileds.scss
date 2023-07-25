@@ -1,0 +1,33 @@
+.cf-widget-item-container {
+  margin: 40px 0;
+
+  .inner {
+    position: relative;
+    img{
+      @include respond-to(xipad){
+        width: 100%;
+      }
+    }
+  }
+
+  .inner-padding {
+    padding: 30px;
+    @include respond-to(medium){
+      padding: 30px 15px;
+    }
+
+    @include respond-to(ipad){
+      position: absolute;
+      top: 50%;
+      transform: translate(-15%,-50%);
+      width: 40vw;
+      left: 15%;
+      background: rgba(255,255,255,.85);
+      font-size: 1.01vw;
+    }
+  }
+}
+/*image with text metafileds*/
+.cf-widget-item.cf-widget-item-container.show-ipad {
+    margin-bottom: 0;
+}

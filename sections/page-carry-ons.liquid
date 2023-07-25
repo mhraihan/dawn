@@ -1,0 +1,127 @@
+<div class="container-md">
+  <h2 class="page-title text-center mb-4">
+    {{ page.title }}
+  </h2>
+  <div class="page-description text-center mb-4">
+    {{ page.content }}
+  </div>
+  <div class="compare-sizes">
+    <div class="row">
+      {% for block in section.blocks %}
+        <div class="col-12 col-sm-6">
+          {% if block.settings.image %}
+            <div class="carry-image relative">
+              {% render 'image', image: block.settings.image %}
+            </div>
+          {% endif %}
+          <div class="carry-ons-title pt-4 text-center">
+            <p class="mb-0 ec">
+              {{ block.settings.title | default: block.settings.product.title }}
+            </p>
+          </div>
+          <div class="carry-ons-description page-description pt-4 text-center">
+            {{ block.settings.richtext }}
+          </div>
+          <div class="carry-ons-icons pt-4 flex flex-column flex-md-row">
+            {% for i in (1..3) %}
+              {%- capture icon -%}icon{{i}}{%- endcapture -%}
+              {%- capture title -%}title{{i}}{%- endcapture -%}
+              {% if block.settings[icon] and block.settings[title] %}
+                <div class="carry-ons-icon-row flex flex-row flex-md-column justify-content-center align-items-center">
+                  <div class="carry-ons-icon">
+                    <img
+                      src="{{ block.settings[icon] | image_url }}"
+                      width="{{ block.settings[icon].width }}"
+                      height="{{ block.settings[icon].width }}"
+                      loading="lazy"
+                      alt="{{ block.settings[icon].alt | default: block.settings[title] }}"
+                    >
+                  </div>
+                  <div class="carry-ons-icon-title">
+                    {{ block.settings[title] }}
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="carry-ons-buttons pt-5 text-center uppercase">
+            <a href="{{ block.settings.product.url }}" class="w-full button button-primary">Shop Now</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Carry Ons",
+  "class": "page-carry-ons",
+  "settings": [],
+  "max_blocks": 2,
+  "blocks": [
+    {
+      "name": "Product",
+      "type": "product",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product Image"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product",
+          "info": "Product title will be used here"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Product Title",
+          "info": "Override default product title"
+        },
+        {
+          "type": "richtext",
+          "id": "richtext",
+          "label": "Product Short Information"
+        },
+        {
+          "type": "header",
+          "content": "Extra Information"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon1",
+          "label": "Icon 1"
+        },
+        {
+          "type": "text",
+          "id": "title1",
+          "label": "Icon Title 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon2",
+          "label": "Icon 2"
+        },
+        {
+          "type": "text",
+          "id": "title2",
+          "label": "Icon Title 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon3",
+          "label": "Icon 3"
+        },
+        {
+          "type": "text",
+          "id": "title3",
+          "label": "Icon Title 3"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

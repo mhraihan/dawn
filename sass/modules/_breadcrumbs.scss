@@ -1,0 +1,37 @@
+
+/* breadcrumbs */
+.breadcrumb {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 35px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include respond-to(xipad){
+      padding: 15px 0;
+    }
+    .template-collection{
+      padding-bottom: 10px;
+   }
+    a,span{
+      color: $gray;
+   }
+    > span{
+      &:last-child{
+         color: $red;
+      }
+      .mh-king &{
+        &:last-child{
+           color: $green;
+        }
+      }
+   }
+   .dots {
+       width: 5px;
+       height: 5px;
+       background: $gray;
+       display: inherit;
+       border-radius: 50%;
+       margin: 0 8px;
+   }
+}

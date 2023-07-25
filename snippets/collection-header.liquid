@@ -1,0 +1,46 @@
+{% if collection.metafields.custom.collection_banner.value %}
+  {% assign item = collection.metafields.custom.collection_banner %}
+  {% assign media = item | media_type %}
+  {% if media.value.media_type == 'image' %}
+  <figure class="c-homepage__header-video c-homepage__header-image relative">
+    {% render 'image', image: item.value %}
+    <h2 class="collection-title absolute">
+      {{ collection.title }}
+    </h2> 
+  </figure>
+  {% else %}
+    <figure class="c-homepage__header-video relative">
+      {{  media.value | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
+      <h2 class="collection-title absolute mb-0">
+        {{ collection.title }}
+      </h2> 
+      <figure class="video-cursor hide" style="transform: translate(303px, 1034.73px);">
+        <div class="inner">
+          <svg
+            width="180"
+            height="163"
+            viewBox="0 0 180 163"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path  d="M153.239 44.4173C160.175 56.4306 159.416 71.4325 152.481 86.0207C145.547 100.606 132.456 114.728 114.836 124.902C97.2156 135.075 78.44 139.351 62.3414 138.063C46.2402 136.775 32.8689 129.931 25.933 117.917C18.9971 105.904 19.7557 90.9021 26.6907 76.3139C33.6246 61.7281 46.7156 47.6061 64.3359 37.433C81.9562 27.2599 100.732 22.9838 116.83 24.2718C132.932 25.5599 146.303 32.404 153.239 44.4173Z" stroke="white"></path>
+          </svg>
+          <span class="text-label"> Sound off </span>
+        </div>
+      </figure>
+    </figure>
+  {% endif %}
+{% comment %} {% elsif collection.featured_image  %}
+  <figure class="c-homepage__header-video c-homepage__header-image relative">
+    {% render 'image', image: collection.featured_image %}
+    <h2 class="collection-title absolute">
+      {{ collection.title }}
+    </h2> 
+  </figure> {% endcomment %}
+{% else %}
+  <div class="collection-title-header">
+    <h2 class="collection-title--no-media mt-3 mb-5">
+      {{ collection.title }}
+    </h2> 
+  </div>
+{% endif %}

@@ -1,0 +1,11 @@
+body:not(.floating-header) {
+  .header-topbar {
+    background: #f1f1f1;
+    border-radius: 50px;
+  }
+}
+.header-topbar {
+  @include respond-to(medium) {
+    min-height: 26px;
+  }
+}

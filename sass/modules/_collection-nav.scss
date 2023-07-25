@@ -1,0 +1,40 @@
+.mh-col-nav {
+	.site-nav__dropdown {
+      padding: 0 12px;
+      ul {
+         display: block;
+         width: 100%;
+         min-width: 175px;
+         li {
+            border-bottom: 1px solid #e8e9eb;
+            &:last-child {
+               border-bottom: none;
+            }
+            a {
+   				padding: 10px 5px;
+   				text-transform: uppercase;
+   				font-family: 'Futura Md LT';
+   				font-family: 'Futura Lt BT';
+   			}
+         }
+      }
+	}
+   .site-nav__link--collection{
+   	text-transform: uppercase;
+   	border: 1px solid transparent;
+      padding: 12px 25px;
+      @include hover-content(){
+            border-color: #e8e9eb;
+      }
+   }
+   .site-nav{
+
+   }
+   .site-nav--has-dropdown {
+   	&:hover {
+   		.site-nav__dropdown {
+   			display: block;
+   		}
+   	}
+   }
+}

@@ -1,0 +1,35 @@
+{% capture icon_text %}
+      <div class="align-items-center flex flex-md-column flex-row icon_with_text_wrapper">
+    {% if dash %}
+      <div class="icon_with_text_icon">
+        {% render 'icon-dash' %}
+      </div>
+
+    {% else %}
+      <div class="icon_with_text_icon">
+        <img
+          width="auto"
+          height="auto"
+          loading="lazy"
+          src="{{ icon | image_url }}"
+          alt="{{ title }}"
+        >
+      </div>
+      <div class="text-center">
+        <div class="icon_with_text">{{ title }}</div>
+      </div>
+      {% if subtitle != blank %}
+        <div class="icon_with_text_subtitle pt-2">
+          {{ subtitle }}
+        </div>
+      {% endif %}
+    {% endif %}
+  </div>
+{% endcapture %}
+{% if wrapper %}
+  <div class="product-comparison-section">
+    {{ icon_text }}
+  </div>
+{% else %}
+  {{ icon_text }}
+{% endif %}

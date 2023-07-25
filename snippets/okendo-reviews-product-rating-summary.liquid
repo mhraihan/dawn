@@ -1,0 +1,11 @@
+{% if product.metafields.okendo.summaryData.reviewCount %}
+  <div class="review-start">
+    {{ product.metafields.okendo.StarRatingSnippet }}
+  </div>
+  <div class="star-summary-data">
+    <span>
+      {{ product.metafields.okendo.summaryData.reviewAverageValue }}
+    </span>
+    <span class="uppercase"> ({{ product.metafields.okendo.summaryData.reviewCount }} Reviews) </span>
+  </div>
+{% endif %}

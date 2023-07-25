@@ -1,153 +1,183 @@
-{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+<div data-section-type="blog-template">
+  {% paginate blog.articles by 12 %}
 
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
-
-{%- paginate blog.articles by 6 -%}
-  <div class="main-blog page-width section-{{ section.id }}-padding">
-    <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      {{ blog.title | escape }}
-    </h1>
-
-    <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
-      {%- for article in blog.articles -%}
-        <div
-          class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-            style="--animation-order: {{ forloop.index }};"
+  <div class="container page-header page-header--triplet page-header--middle-main" data-cc-animate>
+    <div class="page-header__left">
+      {% if section.settings.show_filters  and blog.all_tags.size > 0 %}
+        <a href="#" class="toggle-btn js-only" data-toggle-filters>
+          <span class="button-icon">{% render 'svg-filter' %}</span>
+          <span>{{ 'collections.filtering.filter' | t }}</span>
+          {% if current_tags.size > 0 %}
+            <span class="toggle-btn__count">({{ current_tags | size }})</span>
           {% endif %}
-        >
-          {%- render 'article-card',
-            article: article,
-            media_height: section.settings.image_height,
-            media_aspect_ratio: article.image.aspect_ratio,
-            show_image: section.settings.show_image,
-            show_date: section.settings.show_date,
-            show_author: section.settings.show_author,
-            show_excerpt: true
-          -%}
+        </a>
+      {% endif %}
+    </div>
+    <div class="page-header__middle">
+      <h1 class="page-header__title">{{ blog.title | escape }}</h1>
+    </div>
+    <div class="page-header__right">
+      {% if section.settings.show_sharing_icons %}
+        {% render 'social-sharing', share_title: blog.title, share_permalink: blog.url, share_image: false %}
+      {% endif %}
+      {% if section.settings.show_rss_icon %}
+        <a class="rsslink" href="{{ blog.url }}.atom" title="{{ blog.title | escape }} RSS">{% render 'svg-rss' %}</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="filter-modal cc-popup cc-popup--left" aria-hidden="true" data-freeze-scroll="true">
+    <div class="cc-popup-background"></div>
+    <div class="cc-popup-modal" role="dialog" aria-modal="true" aria-labelledby="FilterHeading">
+      <div class="cc-popup-container">
+        <button type="button" class="cc-popup-close tap-target" aria-label="{{ 'general.accessibility_labels.close' | t | escape }}">
+          {%- render 'popup-close' -%}
+        </button>
+        <div class="cc-popup-content" data-ajax-container="filters">
+          <div class="filters">
+            <div class="filters__inner">
+              <div class="filters__heading">
+                <h4 class="filters__heading-text" id="FilterHeading">{{ 'collections.filtering.heading' | t }}</h4>
+              </div>
+
+              <div class="filter-group">
+                <div class="filter-group__items">
+                  <a href="{{ blog.url }}" class="filter-group__item{% if current_tags == blank %} filter-group__item--active{% endif %}">
+                    <input class="filter-group__checkbox" type="checkbox" {% if current_tags == blank %}checked{% endif %} aria-hidden="true">
+                    <span class="filter-group__item__text">{{- 'collections.filtering.all' | t -}}</span>
+                  </a>
+
+                  {% for tag in blog.all_tags %}
+                    <a href="{{ tag | link_to_tag: tag | split: 'href="' | last | split: '"' | first }}" class="filter-group__item{% if current_tags contains tag %} filter-group__item--active{% endif %}">
+                      <input class="filter-group__checkbox" type="checkbox" {% if current_tags contains tag %}checked{% endif %} aria-hidden="true">
+                      <span class="filter-group__item__text">{{ tag }}</span>
+                    </a>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+
+  {%- if blog.articles.size > 0 -%}
+    <div class="flexible-layout">
+      {%- for article in blog.articles -%}
+        {%- render 'article-block', article: article, heading_tag: 'h2' -%}
       {%- endfor -%}
     </div>
+  {%- else -%}
+    <h5 class="align-centre spaced-text-row">{{ 'blogs.general.no_matches' | t }}</h5>
+  {%- endif -%}
 
-    {%- if paginate.pages > 1 -%}
-      {%- render 'pagination', paginate: paginate -%}
-    {%- endif -%}
-  </div>
-{%- endpaginate -%}
+  {% render 'pagination-control', paginate: paginate %}
+
+  {% endpaginate %}
+</div>
+
 
 {% schema %}
-{
-  "name": "t:sections.main-blog.name",
-  "tag": "section",
-  "class": "section",
-  "settings": [
-    {
-      "type": "header",
-      "content": "t:sections.main-blog.settings.header.content"
-    },
-    {
-      "type": "select",
-      "id": "layout",
-      "options": [
-        {
-          "value": "grid",
-          "label": "t:sections.main-blog.settings.layout.options__1.label"
-        },
-        {
-          "value": "collage",
-          "label": "t:sections.main-blog.settings.layout.options__2.label"
-        }
-      ],
-      "default": "collage",
-      "label": "t:sections.main-blog.settings.layout.label",
-      "info": "t:sections.main-blog.settings.layout.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_image",
-      "default": true,
-      "label": "t:sections.main-blog.settings.show_image.label"
-    },
-    {
-      "type": "select",
-      "id": "image_height",
-      "options": [
-        {
-          "value": "adapt",
-          "label": "t:sections.main-blog.settings.image_height.options__1.label"
-        },
-        {
-          "value": "small",
-          "label": "t:sections.main-blog.settings.image_height.options__2.label"
-        },
-        {
-          "value": "medium",
-          "label": "t:sections.main-blog.settings.image_height.options__3.label"
-        },
-        {
-          "value": "large",
-          "label": "t:sections.main-blog.settings.image_height.options__4.label"
-        }
-      ],
-      "default": "medium",
-      "label": "t:sections.main-blog.settings.image_height.label",
-      "info": "t:sections.main-blog.settings.image_height.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_date",
-      "default": true,
-      "label": "t:sections.main-blog.settings.show_date.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_author",
-      "default": false,
-      "label": "t:sections.main-blog.settings.show_author.label"
-    },
-    {
-      "type": "paragraph",
-      "content": "t:sections.main-blog.settings.paragraph.content"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
-    }
-  ]
-}
+  {
+    "name": "Blog pages",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_filters",
+        "label": "Show tag filter",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_author",
+        "label": "Show author",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_date",
+        "label": "Show date",
+        "default": true
+      },
+	    {
+        "type": "checkbox",
+        "id": "show_excerpts",
+        "label": "Show excerpt",
+        "info": "Change excerpts by editing your blog posts. [Learn more](https:\/\/help.shopify.com\/en\/manual\/online-store\/blogs\/writing-blogs#display-an-excerpt-from-a-blog-post)",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_article_tags",
+        "label": "Show tags underneath articles",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sharing_icons",
+        "label": "Show social sharing icons",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_rss_icon",
+        "label": "Show RSS feed link",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "crop_ratio",
+        "label": "Image size",
+        "options": [
+          {
+            "value": "",
+            "label": "Natural (no crop)"
+          },
+          {
+            "value": "0.67",
+            "label": "Portrait (2:3)"
+          },
+          {
+            "value": "1.0",
+            "label": "Square (1:1)"
+          },
+          {
+            "value": "1.33",
+            "label": "Landscape (4:3)"
+          },
+          {
+            "value": "1.78",
+            "label": "Wide (16:9)"
+          }
+        ],
+        "default": "1.78"
+      },
+      {
+        "type": "select",
+        "id": "color_scheme",
+        "label": "Color scheme",
+        "default": "1",
+        "options": [
+          {
+            "value": "1",
+            "label": "Card 1"
+          },
+          {
+            "value": "2",
+            "label": "Card 2"
+          },
+          {
+            "value": "3",
+            "label": "Card 3"
+          },
+          {
+            "value": "none",
+            "label": "No card"
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}

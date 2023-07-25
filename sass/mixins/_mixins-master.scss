@@ -1,0 +1,266 @@
+/*================ Mixins ================*/
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  // sass-lint:disable
+  *zoom: 1;
+}
+
+/*============================================================================
+  Prefix mixin for generating vendor prefixes.
+  Based on https://github.com/thoughtbot/bourbon/blob/v4-stable/app/assets/stylesheets/addons/_prefixer.scss
+
+  Usage:
+    // Input:
+    .element {
+      @include prefix(transform, scale(1), ms webkit spec);
+    }
+
+    // Output:
+    .element {
+      -ms-transform: scale(1);
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+==============================================================================*/
+
+@mixin prefix($property, $value, $prefixes) {
+  @each $prefix in $prefixes {
+    @if $prefix==webkit {
+      -webkit-#{$property}: $value;
+    } @else if $prefix==moz {
+      -moz-#{$property}: $value;
+    } @else if $prefix==ms {
+      -ms-#{$property}: $value;
+    } @else if $prefix==o {
+      -o-#{$property}: $value;
+    } @else if $prefix==spec {
+      #{$property}: $value;
+    } @else {
+      @warn "Unrecognized prefix: #{$prefix}";
+    }
+  }
+}
+
+/*================ Media Query Mixin ================*/
+
+@mixin media-query($media-query) {
+  $breakpoint-found: false;
+  @each $breakpoint in $breakpoints {
+    $name: nth($breakpoint, 1);
+    $declaration: nth($breakpoint, 2);
+    @if $media-query==$name and $declaration {
+      $breakpoint-found: true;
+      @media only screen and #{$declaration} {
+        @content;
+      }
+    }
+  }
+  @if $breakpoint-found==false {
+    @warn 'Breakpoint "#{$media-query}" does not exist';
+  }
+}
+
+/*================ Predefine Media Query Mixin ================*/
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "xsmall" {
+    @media (max-width: 380px) {
+      @content;
+    }
+  } @else if $breakpoint == "small" {
+    @media (max-width: 480px) {
+      @content;
+    }
+  } @else if $breakpoint == "xxsmall" {
+    @media (max-width: 800px) {
+      @content;
+    }
+  } @else if $breakpoint == "medium" {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $breakpoint == "xmedium" {
+    @media (max-width: 990px) {
+      @content;
+    }
+  } @else if $breakpoint == "xipad" {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  } @else if $breakpoint == "xxmedium" {
+    @media (max-width: 1180px) {
+      @content;
+    }
+  } @else if $breakpoint == "large" {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $breakpoint == "larger" {
+    @media (min-width: 991px) {
+      @content;
+    }
+  } @else if $breakpoint == "ipad" {
+    @media (min-width: 1025px) {
+      @content;
+    }
+  } @else if $breakpoint == "xlarge" {
+    @media (min-width: 1280px) {
+      @content;
+    }
+  } @else if $breakpoint == "xxlarge" {
+    @media (min-width: 1440px) {
+      @content;
+    }
+  } @else if $breakpoint == "ie10+" {
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      @content;
+    }
+  } @else if $breakpoint == "tablet" {
+    @media only screen and (min-width: 1025px) and (max-width: 1239px) {
+      @content;
+    }
+  } @else if $breakpoint == "twok" {
+    @media only screen and (min-width: 1921px) {
+      @content;
+    }
+  } @else if $breakpoint == "fourk" {
+    @media only screen and (min-width: 2560px) {
+      @content;
+    }
+  } @else if $breakpoint == "custom" {
+    @media only screen and (min-width: 768px) and (max-width: 1099px) {
+      @content;
+    }
+  } @else {
+    @media ($breakpoint) {
+      @content;
+    }
+  }
+}
+
+/*================ Responsive Show/Hide Helper ================*/
+
+@mixin responsive-display-helper($breakpoint: "") {
+  // sass-lint:disable no-important
+  .#{$breakpoint}show {
+    display: block !important;
+  }
+  .#{$breakpoint}hide {
+    display: none !important;
+  }
+}
+
+/*================ Responsive Text Alignment Helper ================*/
+
+@mixin responsive-text-align-helper($breakpoint: "") {
+  // sass-lint:disable no-important
+  .#{$breakpoint}text-left {
+    text-align: left !important;
+  }
+  .#{$breakpoint}text-right {
+    text-align: right !important;
+  }
+  .#{$breakpoint}text-center {
+    text-align: center !important;
+  }
+}
+
+@mixin visually-hidden {
+  // sass-lint:disable no-important
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+@mixin visually-shown($position: inherit) {
+  // sass-lint:disable no-important
+  position: $position !important;
+  overflow: auto;
+  clip: auto;
+  width: auto;
+  height: auto;
+  margin: 0;
+}
+
+@mixin placeholder-text($color: $color-textfield-text, $opacity: 0.6) {
+  color: $color;
+  opacity: $opacity;
+}
+
+@mixin hover($color: inherit) {
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color;
+  }
+}
+@mixin hover-content() {
+  &:hover,
+  &:focus,
+  &:active {
+    @content;
+  }
+}
+
+@mixin gap($value: 35px 0) {
+  padding: $value;
+}
+
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+  font-size: ($sizeValue * 16) * 1px;
+  font-size: $sizeValue * 1rem;
+}
+// vertical center
+@mixin vertical-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+// Center block
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+  clear: both;
+}
+
+@mixin transition($duration: 0.2s) {
+  transition: all $duration ease 0s;
+}
+
+@mixin ttu() {
+  text-transform: uppercase;
+}
+
+@mixin ttn() {
+  text-transform: none;
+}
+
+@mixin gw() {
+  // font-family: "Graphik Web";
+  font-family: "PP Telegraf";
+}
+
+@mixin ld() {
+  font-family: "PP Telegraf", "Swiss 721", serif;
+}
+
+@mixin ec($weigth: 400) {
+  font-family: "EightiesComeback";
+  font-weight: $weigth;
+}

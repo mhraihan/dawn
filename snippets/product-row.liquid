@@ -1,0 +1,67 @@
+{% comment %} configure collection {% endcomment %}
+{% liquid
+  if product.metafields.custom.collection_name.value
+    assign col = product.metafields.custom.collection_name.value
+  elsif collection.handle
+    assign col = collection
+  endif
+  unless col and col.metafields.custom.product_custom_row.value
+    for collection in product.collections
+      if collection.metafields.custom.product_custom_row.value
+        assign col = collection
+        break
+      endif
+    endfor
+  endunless
+%}
+
+
+<div
+  id="section-id-{{ product.id }}"
+  class="mh-product-custom-row fully-spaced-row--medium m-0 card card-scheme card-scheme--1"
+  data-section-type="custom-row">
+  {% for block in col.metafields.custom.product_custom_row.value %}
+    <div id="block-id-{{ forloop.index }}" class="flexible-layout flexible-layout--align-center valign-middle {% if block.image_on_right.value %}flex-column-reverse flex-md-row {% endif %}">
+      {% capture image %}
+        <div
+          class="column column--half cc-fade-in-up cc-animate-init -in cc-animate-complete ml-0 mr-0"
+          data-cc-animate="cc-fade-in-up"
+          data-cc-animate-delay="{{ forloop.index | times: 0.15 }}s">
+          <div class="height--adapt image-overlay image-overlay--bg-shadow">
+
+            {% assign media = block.image_video_file | media_typ %}
+            {% if media.value.media_type == 'video' %}
+              <figure class="c-homepage__header-video video-container relative">
+                {{ media.value | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'mh-custom-row-video' }}
+              </figure>
+            {% else %}
+              {%- render 'background-image', image: block.image_video_file.value, image_position: 'center center' -%}
+
+            {% endif %}
+          </div>
+        </div>
+      {% endcapture %}
+
+      {% unless block.image_on_right.value %}
+        {{ image }}
+      {% endunless %}
+      <div
+        class="column column--half card-scheme card-scheme--1 card-content-padding cc-fade-in-up cc-animate-init -in cc-animate-complete"
+        data-cc-animate="cc-fade-in-up"
+        data-cc-animate-delay="{{ forloop.index | times: 0.15 }}s">
+        <div class="align-left card-content-padding-x spaced-text-row">
+          {%- if block.title.value != blank -%}
+            <h2 class="majortitle h1-style in-content">
+              {{ block.title.value }}
+            </h2>
+          {%- endif -%}
+
+          <div class="rte">{{ block.text.value }}</div>
+        </div>
+      </div>
+      {% if block.image_on_right.value %}
+        {{ image }}
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,152 @@
+.footer_contentWrapper {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  padding: 48px;
+  margin: 0 auto;
+  max-width: 1920px;
+}
+.footer_menus {
+  display: flex;
+  flex-direction: row;
+  padding-right: 35px;
+}
+.footer_newsletterWrapper {
+  margin-top: 6px;
+  max-width: 383px;
+  margin-left: auto;
+}
+.footer_menu {
+  width: 180px;
+  margin-right: 21px;
+  .footer_menuLink {
+    a {
+      margin-bottom: 1rem;
+      @include gw();
+      font-size: 1rem;
+      line-height: 1;
+      color: var(--black);
+      display: inline-flex;
+      vertical-align: top;
+    }
+  }
+}
+.menu_component {
+  position: relative;
+  transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.menu_header_component {
+  @include gw();
+  font-size: 1.125rem;
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 500;
+  color: var(--black);
+  margin-bottom: 24px;
+}
+.menu_group_list {
+  list-style: none;
+  min-width: 200px;
+  width: 100%;
+}
+.menu_group_icons {
+  li {
+    display: inline-block;
+    margin-right: 16px;
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}
+.email_capture_header_component {
+  @include ld();
+  line-height: 1.05;
+  font-weight: 400;
+  margin: 0 0 13px;
+  padding: 0;
+  color: var(--black);
+  font-size: 2.25rem;
+}
+.email_capture_confirmation_copy_component {
+  @include gw();
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--black);
+  margin: 0 0 16px;
+}
+.email_capture_hiddenInputLabel {
+  height: 0;
+  visibility: hidden;
+  display: block;
+}
+.email_capture_inputContainer {
+  display: flex;
+  flex-direction: row;
+}
+.email_capture_emailCaptureErrorPlaceholder {
+  height: 32px;
+}
+.email_capture_emailInput {
+  -webkit-appearance: none;
+  appearance: none;
+  background: none;
+  border: 1px solid var(--black);
+  border-radius: 0;
+  box-shadow: none;
+  color: var(--black);
+  display: inline-block;
+  @include gw();
+  font-size: 1rem;
+  height: 56px;
+  padding: 0 16px;
+  width: 100%;
+}
+.button_component {
+  @include gw();
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--black);
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+.email_capture_submitButton {
+  background: var(--black);
+  min-width: 56px;
+  height: 56px;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+.disclosure {
+  .localization-form__select {
+      padding: 12px 1.25rem !important;
+      font-size: .875rem;
+      height: auto;
+      min-height: calc(2rem + var(--inputs-border-width) * 2);
+      min-width: 200px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+    .icon-caret {
+        position: absolute;
+        content: "";
+        height: 0.6rem;
+        right: 10px;
+        top: calc(50% - 0rem);
+        transform: translateY(-50%) rotate(270deg);
+    }
+  }
+}
+.footer .disclosure__link {
+    padding: .85rem;
+    font-size: .875rem;
+    line-height: 1;
+}

@@ -1,32 +1,55 @@
 {
   "sections": {
-    "banner": {
-      "type": "main-collection-banner",
+    "fad53455-5369-4c84-abad-03104fb9d2f1": {
+      "type": "rich-text",
+      "disabled": true,
+      "blocks": {
+        "template--18155174199606__fad53455-5369-4c84-abad-03104fb9d2f1-1688357741419d4e51-0": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "title": "Rich text",
+            "title_size": "h1-style",
+            "use_h1": false,
+            "heading_highlight_text": "",
+            "heading_highlight_font": true,
+            "heading_highlight_stencil": false,
+            "heading_highlight_color": "rgba(0,0,0,0)",
+            "heading_highlight_gradient": ""
+          }
+        },
+        "template--18155174199606__fad53455-5369-4c84-abad-03104fb9d2f1-1688357741419d4e51-1": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Use this text to share information about your store with your customers. Describe products, share announcements, or welcome customers to your store.<\/p>",
+            "enlarge_text": true
+          }
+        }
+      },
+      "block_order": [
+        "template--18155174199606__fad53455-5369-4c84-abad-03104fb9d2f1-1688357741419d4e51-0",
+        "template--18155174199606__fad53455-5369-4c84-abad-03104fb9d2f1-1688357741419d4e51-1"
+      ],
       "settings": {
-        "show_collection_description": true,
-        "show_collection_image": false,
-        "color_scheme": "background-1"
+        "height": "medium",
+        "text_alignment": "center",
+        "color_scheme": "1",
+        "full_width": false
       }
     },
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
-        "products_per_page": 16,
-        "columns_desktop": 4,
-        "image_ratio": "adapt",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "enable_filtering": true,
-        "enable_sorting": true,
-        "columns_mobile": "2",
+        "banner": "{{ collection.metafields.custom.collection_banner.value }}",
+        "products_per_page": 12,
         "padding_top": 36,
         "padding_bottom": 36
       }
     }
   },
   "order": [
-    "banner",
+    "fad53455-5369-4c84-abad-03104fb9d2f1",
     "product-grid"
   ]
 }

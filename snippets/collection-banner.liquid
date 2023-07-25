@@ -1,0 +1,84 @@
+{% for item in collection.metafields.custom.collection_settings.value offset: offset limit: 1 %}
+  {% capture image %}
+    <div
+    class="component content-tile-medium-component"
+    style=""
+    data-attr="content-tile-diptych"
+    data-link="{{ item.description.button_link | default: '#' }}"
+    id="meta-item-{{ item.description.postion }}"
+  >
+ {% assign media = item.file | media_type %}
+
+
+
+    {% if media.value.media_type == 'video' %}
+     {{ media.value | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'mh-video' }}
+    {% else %}
+      <a aria-label="Shop sets" href="{{ item.description.button_link | default: '#' }}" class="content_tile_medium_link">
+      <div class="content_tile_medium_wrap">
+        <div class="content_tile_medium_mediaBox">
+          <div class="component zoom-image-component zoom_image_component">
+            <div
+              class="optimized_picture_aspect_ratio "
+            >
+              <picture class="component optimized-picture-component optimized_picture_component"
+                ><img
+                  src="{{ item.file.value | image_url }}"
+                  alt="{{ item.title.value }}"
+                  class="motion-reduce"
+                  loading="lazy"
+                  width="2480"
+                  height="2480"
+                >
+              </picture>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+    {% endif %}
+  </div>
+{% endcapture %}
+  {% capture content %}
+    <div
+    class="component content-tile-medium-component"
+    style=""
+    data-attr="content-tile-diptych"
+    data-link="{{ item.description.button_link | default: '#' }}"
+    id="meta-item-{{ item.description.postion }}"
+  >
+    <a aria-label="Shop sets" href="{{ item.description.button_link | default: '#' }}" class="content_tile_medium_link">
+      <div class="content_tile_medium_wrap">
+        <div
+          class="content_tile_medium_container"
+          style="color:{{ item.text_color.value | default: '#000000' }};background:{{ item.background_color.value | default: '#FFFFFF' }}"
+        >
+          <span class="content_tile_medium_head"> {{ item.title.value }} </span
+          ><span class="content_tile_medium_desc">{{ item.description.value }}</span>
+          {% if item.button_lable.value and item.button_link.value %}
+            <span class="content_tile_medium_cta">
+              <div class="component cta-component cta_component">
+                <div class="cta_cta cta_animationEnter">
+                  {{ item.button_lable.value }}
+                  <div class="cta-icon-wrapper " style="margin-left:12px">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M8.212 14.52v.24l.244.24h1.95l.487-.24L16.5 9.24v-.48l-5.607-5.52-.487-.24h-1.95l-.244.24v.24L12.6 7.8v.24l-10.736.002-.364.461V9.5l.364.462L12.6 9.96v.24l-4.388 4.32z" fill="#111"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </span>
+          {% endif %}
+        </div>
+      </div>
+    </a>
+  </div>
+{% endcapture %}
+  {% if item.do_you_want_to_display_image_on_the_left.value %}
+    {{ content }}
+    {{ image }}
+  {% else %}
+    {{ image }}
+    {{ content }}
+  {% endif %}
+{% endfor %}

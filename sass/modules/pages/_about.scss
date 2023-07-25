@@ -1,0 +1,36 @@
+// about pages
+.min-height{
+  min-height: 30px;
+}
+.pl-gap{
+  @include respond-to(larger){
+    padding-left: 35px;
+  }
+}
+.about-custom__image-1{
+  margin-bottom: 30px;
+}
+.mh-about-content{
+  margin-bottom: 35px;
+}
+.mh-about-button{
+  // margin: 30px 0;
+}
+.flex-full {
+    flex: 100%;
+}
+.stores-title{
+  @include respond-to(larger){
+    margin-bottom: 35px;
+  }
+}
+
+.mh-pages-stores {
+    display: flex;
+    flex-wrap: wrap;
+    @include respond-to(medium){
+      &.mobile-right {
+          flex-direction: column-reverse;
+      }
+    }
+}

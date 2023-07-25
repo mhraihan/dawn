@@ -1,0 +1,7 @@
+.small--one-whole.custom-content-text {
+    @include respond-to(medium){
+    	max-width: 100%;
+	    order: 3;
+	    margin-top: 15px;
+    }
+}

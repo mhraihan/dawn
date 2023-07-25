@@ -1,0 +1,435 @@
+<h1 class="product_comparison_heading my-4 text-center">
+  {{ page.title }}
+</h1>
+<div class="image-header-container relative">
+  <div class="header-icon absolute flex w-full justify-content-center">
+    <button class="image_button">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M36.36 13.744c-.828-.833-1.864-1.353-3.106-1.353h-2.898V5.935c0-.729-.31-1.354-.725-1.874-.517-.52-1.138-.729-1.863-.729H20.73c-.31 0-.725 0-1.035.208a1.61 1.61 0 0 0-.828.625c-.207.208-.414.52-.518.937-.103.312-.207.625-.207 1.041V12.6h-2.898c-1.139 0-2.277.416-3.105 1.353-.725.625-1.139 1.666-1.139 2.916v23.531c0 1.146.414 2.29 1.242 3.124.828.833 1.863 1.353 3.105 1.353h18.01c1.14 0 2.278-.416 3.106-1.353.828-.833 1.242-1.978 1.242-3.124V16.868c0-1.25-.517-2.29-1.345-3.124zm-.31 22.907v3.748c0 .73-.311 1.458-.829 1.979a2.82 2.82 0 0 1-1.967.833h-18.01a2.82 2.82 0 0 1-1.967-.833 2.853 2.853 0 0 1-.828-1.979v-3.748h23.6zm0-7.185v5.623H12.552v-5.622h23.496zm0-7.288v5.623H12.552v-5.623h23.496zM20.42 4.998c.103 0 .206-.104.413-.104h7.142c.207 0 .518.104.725.312.207.208.31.417.31.73v6.455h-9.005V5.935c0-.104 0-.208.104-.416 0-.105.103-.209.207-.313-.207-.104-.104-.104.103-.208zm15.63 11.87v3.748H12.552v-3.748c0-.729.31-1.458.828-1.978a2.82 2.82 0 0 1 1.966-.834h18.01c.725 0 1.45.313 1.968.834.413.52.724 1.249.724 1.978z" fill="#111"></path>
+      </svg>
+      Show suitcases
+    </button>
+  </div>
+  <div class="header-image header-image-1">
+    <div class="w-auto h-auto relative">
+      {% render 'image', image: section.settings.image %}
+    </div>
+  </div>
+</div>
+
+<div class="product-comparison-details">
+  <div class="product-comparison-column product-comparison-column-header product-comparison-column-1">
+    <div class="product-comparison-heading empty-heading"></div>
+    <div class="product-comparison-vertical-heading">
+      <h5 class="mb-0">Length of trip</h5>
+    </div>
+    <div class="product-comparison-vertical-heading">
+      <h5>Capacity</h5>
+    </div>
+    <div class="product-comparison-vertical-heading">
+      <h5 class="mb-0">Carry-on ready</h5>
+      <a
+        aria-label=""
+        href="#airlines"
+        target="_blank"
+        rel="noreferrer"
+        >Check your airline</a
+      >
+    </div>
+    <div class="product-comparison-vertical-heading">
+      <h5 class="mb-0">Key features</h5>
+    </div>
+    <div id="product-shop" class="product-comparison-vertical-heading">
+      <h5 class="mb-0">Shop</h5>
+    </div>
+  </div>
+  {% for block in section.blocks %}
+    {% assign prices = 99999999999999999 %}
+    {% capture products %}
+      {% for i in (1..3) %}
+            {%- capture product -%}product{{ i }}{%- endcapture -%}
+            {% if block.settings[product] != blank %}
+              {% assign product = block.settings[product] %}
+              {% if product.price_min < prices %}
+                  {% assign prices = product.price_min %}
+              {% endif %}
+              <a
+                aria-label=""
+                class="align-items-center flex flex-column product_info_wrapper"
+                href="{{ product.url }}"
+              >
+                <div class="relative page-product-image">
+                  {% render 'image', image: product.featured_image %}
+                </div>
+                <div class="align-items-md-center flex flex-column product_info text-center">
+                  <h6 class="mb-0">{{ product.title }}</h6>
+                  {% if price.varies %}
+                    <span class="product_info_price"> From {{ product.price_min | money }} </span>
+                  {% else %}
+                    <span class="product_info_price">
+                      {{ product.price | money }}
+                    </span>
+                  {% endif %}
+
+                  <div class="flex flex-column">
+                    <span class="compare-product-title text-center">21.7" x 13.7" x 9"</span>
+                    {% if product.weight %}
+                      <span class="compare-product-title text-center">
+                        {{ product.weight }}
+                      </span>
+                    {% endif %}
+                  </div>
+                  <span class="compare-product-title text-center"
+                    >in
+                    <!--  -->
+                    6
+                    <!--  -->
+                    colors</span
+                  >
+                </div>
+                <div class="hidden">
+                  <svg height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 16.5l4-4.5-4-4.5" stroke="#111"></path>
+                  </svg>
+                </div>
+              </a>
+            {% endif %}
+          {% endfor %}
+    {% endcapture %}
+    <div class="product-comparison-column product-comparison-column-2">
+      <div class="product-comparison-heading">
+        <div class="ec">{{ block.settings.title }}</div>
+        <span>From {{ prices | money }}</span>
+        <button type="button" class="button-link">
+          <div class="button_overlay"></div>
+          <span class="button_copy btn-go-product-shop">Shop</span>
+        </button>
+      </div>
+
+      {% liquid
+        assign subtitle = null
+        if block.settings['show-length-subtitle']
+          assign subtitle = section.settings['length-subtitle']
+        endif
+      %}
+      {% render 'page-compare-icon-text',
+        wrapper: true,
+        icon: section.settings['length-icon'],
+        title: section.settings['length-title'],
+        subtitle: subtitle
+      %}
+
+      {% liquid
+        assign subtitle = null
+        if block.settings['show-capacity-subtitle']
+          assign subtitle = section.settings['capacity-subtitle']
+        endif
+      %}
+      {% render 'page-compare-icon-text',
+        wrapper: true,
+        icon: section.settings['capacity-icon'],
+        title: section.settings['capacity-title'],
+        subtitle: subtitle
+      %}
+
+      {% liquid
+        assign subtitle = null
+        if block.settings['show-carry-on-subtitle']
+          assign subtitle = section.settings['carry-on-subtitle']
+        endif
+      %}
+      {% render 'page-compare-icon-text',
+        wrapper: true,
+        icon: section.settings['carry-on-icon'],
+        title: section.settings['carry-on-title'],
+        subtitle: subtitle
+      %}
+      <div class="product-comparison-key-features">
+        {% for i in (1..4) %}
+          {%- capture show -%}show-key-features-{{ i }}{%- endcapture -%}
+
+          {% if block.settings[show] %}
+            {%- capture icon -%}key-features-icon-{{ i }}{%- endcapture -%}
+            {%- capture title -%}key-features-title-{{ i }}{%- endcapture -%}
+            {%- capture subtitle -%}key-features-subtitle-{{ i }}{%- endcapture -%}
+            {% render 'page-compare-icon-text',
+              icon: section.settings[icon],
+              title: section.settings[title],
+              subtitle: section.settings[subtitle]
+            %}
+          {% else %}
+            {% render 'page-compare-icon-text', dash: true %}
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="product-comparison-section product-comparison-product-section p-0">
+        <div class="align-items-center flex flex-md-column flex-row compare_product_wrapper">
+          {{ products }}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Product Compare page",
+  "class": "section-page-compare",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+
+    {
+      "type": "header",
+      "content": "Length of trip - Settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "If image is not selected, empty image will be used"
+    },
+    {
+      "type": "image_picker",
+      "id": "length-icon",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "length-title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "length-subtitle",
+      "label": "Sub Title",
+      "info": "Optional (need checkmark for appears)"
+    },
+    {
+      "type": "header",
+      "content": "Capacity - Settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "If image is not selected, empty image will be used"
+    },
+    {
+      "type": "image_picker",
+      "id": "capacity-icon",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "capacity-title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "capacity-subtitle",
+      "label": "Sub Title",
+      "info": "Optional (need checkmark for appears)"
+    },
+    {
+      "type": "header",
+      "content": "Carry-on ready - Settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "If image is not selected, empty image will be used"
+    },
+    {
+      "type": "image_picker",
+      "id": "carry-on-icon",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "carry-on-title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "carry-on-subtitle",
+      "label": "Sub Title",
+      "info": "Optional (need checkmark for appears)"
+    },
+    {
+      "type": "header",
+      "content": "Key features - Settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "If image is not selected, empty image will be used"
+    },
+    {
+      "type": "image_picker",
+      "id": "key-features-icon-1",
+      "label": "Icon 1"
+    },
+    {
+      "type": "text",
+      "id": "key-features-title-1",
+      "label": "Title 1"
+    },
+    {
+      "type": "text",
+      "id": "key-features-subtitle-1",
+      "label": "Sub Title",
+      "info": "Optional (need checkmark for appears)"
+    },
+    {
+      "type": "image_picker",
+      "id": "key-features-icon-2",
+      "label": "Icon 2"
+    },
+    {
+      "type": "text",
+      "id": "key-features-title-2",
+      "label": "Title 2"
+    },
+    {
+      "type": "text",
+      "id": "key-features-subtitle-2",
+      "label": "Sub Title",
+      "info": "Optional (need checkmark for appears)"
+    },
+    {
+      "type": "image_picker",
+      "id": "key-features-icon-3",
+      "label": "Icon 3"
+    },
+    {
+      "type": "text",
+      "id": "key-features-title-3",
+      "label": "Title 3"
+    },
+    {
+      "type": "text",
+      "id": "key-features-subtitle-3",
+      "label": "Sub Title",
+      "info": "Optional (need checkmark for appears)"
+    },
+    {
+      "type": "image_picker",
+      "id": "key-features-icon-4",
+      "label": "Icon 4"
+    },
+    {
+      "type": "text",
+      "id": "key-features-title-4",
+      "label": "Title 4"
+    },
+    {
+      "type": "text",
+      "id": "key-features-subtitle-4",
+      "label": "Sub Title",
+      "info": "Optional (need checkmark for appears)"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Compare Options",
+      "type": "compare",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "info": "header Information"
+        },
+        {
+          "type": "header",
+          "content": "Length - Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show-length-subtitle",
+          "default": false,
+          "label": "Show Subtitle",
+          "info": "True / False for show hide this information"
+        },
+        {
+          "type": "header",
+          "content": "Capacity - Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show-capacity-subtitle",
+          "default": false,
+          "label": "Show Subtitle",
+          "info": "True / False for show hide this information"
+        },
+        {
+          "type": "header",
+          "content": "Carry-on - Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show-carry-on-subtitle",
+          "default": false,
+          "label": "Show Subtitle",
+          "info": "True / False for show hide this information"
+        },
+        {
+          "type": "header",
+          "content": "Key features - Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show-key-features-1",
+          "default": true,
+          "label": "Show Key Features 1",
+          "info": "True / False for show hide this information"
+        },
+        {
+          "type": "checkbox",
+          "id": "show-key-features-2",
+          "default": true,
+          "label": "Show Key Features 2",
+          "info": "True / False for show hide this information"
+        },
+        {
+          "type": "checkbox",
+          "id": "show-key-features-3",
+          "default": true,
+          "label": "Show Key Features 3",
+          "info": "True / False for show hide this information"
+        },
+        {
+          "type": "checkbox",
+          "id": "show-key-features-4",
+          "default": true,
+          "label": "Show Key Features 4",
+          "info": "True / False for show hide this information"
+        },
+        {
+          "type": "header",
+          "content": "Shop - Settings"
+        },
+        {
+          "type": "paragraph",
+          "content": "currently, you can select upto 3 products"
+        },
+        {
+          "type": "product",
+          "id": "product1",
+          "label": "Product 1"
+        },
+        {
+          "type": "product",
+          "id": "product2",
+          "label": "Product 2"
+        },
+        {
+          "type": "product",
+          "id": "product3",
+          "label": "Product 3"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

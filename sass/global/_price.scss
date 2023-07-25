@@ -1,0 +1,29 @@
+span.money {
+    position: relative;
+}
+span.money-sep {
+    font-size: 12px;
+    position: absolute;
+    top: -1px;
+    top: 0;
+    display: inline-flex;
+    left: -11px;
+    .compare-price &{
+      font-size: 8px;
+      top: 3px;
+    }
+}
+.current-price {
+    font-size: var(--price-font) !important;
+    font-weight: var(--price-weight) !important;
+    color:  var(--price-color) !important;
+}
+.compare-price {
+  font-size: var(--com-price-font) !important;
+  font-weight: var(--com-price-weight) !important;
+  color:  var(--com-price-color) !important;
+  span.money-sep{
+    left: -8px;
+    top: 1.5px;
+  }
+}

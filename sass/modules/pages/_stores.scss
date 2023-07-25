@@ -1,0 +1,41 @@
+.page-stores-container{
+  h2.rich-text__heading {
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 105%;
+    letter-spacing: -.01em;
+    padding-bottom: 8px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+    color: var(--black);
+    @include gw();
+    @include respond-to(large){
+      font-size: 3.5rem;
+      padding-bottom: 1rem;
+    }
+  }
+}
+.pages-stores{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  // max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  @include respond-to(medium){
+    padding: 0 1rem;
+  }
+  > .section{
+    width: 50%;
+    margin-bottom: 5rem;
+    position: relative;
+    .image-with-text-container{
+      height: 100%;
+    }
+    @include respond-to(medium){
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+  }
+}

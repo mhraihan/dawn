@@ -1,0 +1,40 @@
+{% liquid
+  if product.metafields.custom.collection_name.value
+    assign col = product.metafields.custom.collection_name.value
+  elsif collection.handle
+    assign col = collection
+  endif
+  unless col and col.metafields.custom.icon_with_text.value
+    for collection in product.collections
+      if collection.metafields.custom.icon_with_text.value
+        assign col = collection
+        break
+      endif
+    endfor
+  endunless
+  assign icon_text = col.metafields.custom.icon_with_text.value
+
+%}
+
+{% if icon_text %}
+  <div class="product_feature_icons col-{{ col.handle }}">
+    {% for i in (1..6) %}
+      {%- capture icon -%}icon_{{ i }}{%- endcapture -%}
+      {%- capture text -%}text_{{ i }}{%- endcapture -%}
+      {% if icon_text[text].value and icon_text[icon].value %}
+        <div class="flex align-items-center product_feature_icon product_feature_icon_{{ forloop.index }}">
+          <img
+            src="{{ icon_text[icon].value | image_url }}"
+            width="{{ icon_text[icon].value.width | default: 'auto' }}"
+            height="{{ icon_text[icon].value.height | default: 'auto' }}"
+            loading="lazy"
+            alt="{{ icon_text[text] | default: product.title }}"
+            class="product_feature_icons_image">
+          <div class="product_feature_icon_text">
+            {{ icon_text[text].value }}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}

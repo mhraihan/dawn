@@ -1,0 +1,20 @@
+.mh-header {
+    padding: 75px 0 35px;
+}
+.custom-images {
+    position: relative;
+    > div {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+    }
+}
+.mh-custom-image {
+    display: block;
+}
+.shop-btn {
+    text-align: center;
+    margin: 40px 0;
+    font-family: 'Futura Lt BT';
+}

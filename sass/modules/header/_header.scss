@@ -1,0 +1,195 @@
+// fixed scroll
+div#shopify-section-header {
+  transition: 0.25s;
+  position: fixed;
+  z-index: 1000;
+  top: var(--announcement); // this need to be Dynamic
+  left: 0;
+  width: 100%;
+  .scrolled & {
+    top: 0;
+  }
+  .custom-shape-divider-top {
+    // opacity: 0;
+    // display: none;
+    // top: 100%;
+    opacity: 1;
+    display: block;
+    top: 99%;
+    @include respond-to(xmedium) {
+      top: 99%;
+    }
+    svg {
+      height: 80px;
+      @include respond-to(xmedium) {
+        height: 30px;
+      }
+    }
+    .scrolled & {
+      opacity: 1;
+      display: block;
+    }
+  }
+}
+// need to refactor
+.page-faqs:not(.scrolled)
+  div#shopify-section-header
+  .custom-shape-divider-top
+  svg {
+  height: 0;
+}
+.header {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.header-wrapper {
+  @include respond-to(xmedium) {
+    padding-top: 15px;
+  }
+}
+.header--top-center {
+  .mh-header-icon-left {
+    .header__search {
+      display: inline-flex;
+    }
+  }
+}
+.header__heading-logo {
+  .scrolled & {
+    width: 85px;
+    @include respond-to(xmedium) {
+      width: 65px;
+    }
+  }
+}
+/* icons */
+.header__icon {
+  height: 34px;
+  width: 34px;
+  &.header__icon--cart {
+    @include respond-to(xmedium) {
+      .icon {
+        height: 34px;
+        width: 34px;
+      }
+    }
+  }
+  @include respond-to(xmedium) {
+    // height: 54.4px;
+    // width: 54.4px;
+    .icon {
+      height: 54.4px;
+      width: 54.4px;
+    }
+  }
+}
+.animation-icons {
+  position: relative;
+  @include respond-to(larger) {
+    height: 34px;
+    width: 34px;
+    &.person-icons {
+      height: 2.52rem;
+      width: 2.52rem;
+      .header__icon {
+        height: 2.52rem;
+        width: 2.52rem;
+        /* padding: 0; */
+      }
+    }
+  }
+  .header__icon {
+    width: 34px;
+    height: 34px;
+    padding: 2px;
+    @include transition(0.35s);
+  }
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    @include transition(0.35s);
+    display: inline-block !important;
+    object-fit: contain;
+  }
+}
+.mh-header-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include respond-to(xmedium) {
+    justify-content: center;
+  }
+  .scrolled & {
+    margin-top: 35px;
+    @include respond-to(xmedium) {
+      margin-top: 0;
+    }
+  }
+  .header__icon .icon {
+    // height: 34px;
+    // width: 34px;
+    fill: none;
+    vertical-align: middle;
+  }
+  a {
+    @include hover-content() {
+      .animation-icons {
+        svg {
+          opacity: 0;
+        }
+        img {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+.header__icon--cart {
+  margin-right: 0;
+}
+.icon-with-label {
+  color: #d0003e;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+  text-transform: uppercase;
+  justify-content: center;
+  span {
+    &:first-child {
+      margin-bottom: 8px;
+    }
+  }
+  .scrolled & {
+    span:not(:first-child) {
+      @include respond-to(larger) {
+        display: none;
+      }
+    }
+  }
+}
+.cart-count-bubble {
+  span {
+    @include dot();
+  }
+}
+.mh-header-icon-left {
+  @include respond-to(xmedium) {
+    justify-content: flex-start;
+  }
+}
+.mh-header-icon-right {
+  @include respond-to(xmedium) {
+    justify-content: flex-end;
+    padding: 0px 20px;
+  }
+}

@@ -1,0 +1,155 @@
+.wideScreensMaxWidth {
+  @include respond-to(xlarge) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1920px;
+  }
+}
+.select_component {
+  color: var(--black);
+  display: flex;
+  @include gw();
+  font-size: 0.875rem;
+  letter-spacing: 0.009em;
+  position: relative;
+  height: 56px;
+  align-items: center;
+  box-sizing: border-box;
+}
+.button_component {
+  @include gw();
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--black);
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+.button_transparent {
+  background: transparent;
+  color: var(--black);
+}
+.select_option_listItem {
+  border: 1px solid var(--black);
+  display: flex;
+  @include gw();
+  font-size: 1rem;
+  line-height: 1.4;
+  height: 56px;
+  width: 100%;
+  border: 1px solid var(--black);
+  display: flex;
+  @include gw();
+  font-size: 1rem;
+  line-height: 1.4;
+  height: 56px;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  padding-left: 22px;
+  outline: none;
+  transition: background-color 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+button.select_option_selectOptionButton {
+  border: 1px solid var(--black);
+  display: flex;
+  @include gw();
+  font-size: 1rem;
+  line-height: 1.4;
+  height: 56px;
+  width: 100%;
+  padding: 0 36px 0 22px;
+  border: 1px solid var(--black);
+  display: flex;
+  @include gw();
+  font-size: 1rem;
+  line-height: 1.4;
+  height: 56px;
+  width: 100%;
+}
+.select_option_chevron {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  margin-top: -12px;
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform: rotate(0deg);
+}
+.select_option_chevronUp {
+  transform: rotate(-180deg);
+}
+.select_dropList {
+  list-style: none;
+  position: absolute;
+  background-color: var(--white);
+  opacity: 0;
+  visibility: hidden;
+}
+.select_dropDown {
+  top: 100%;
+  right: 0;
+  left: 0;
+  margin: 0;
+  li {
+    &:first-child {
+      border-top: 0;
+    }
+  }
+}
+.select_dropListEnter {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 0;
+  transition: z-index 0.3s, opacity 0.3s, visibility 0.3s;
+}
+.select_option_listItem + li {
+  border-top: 0;
+}
+.select_option_listItem.select_option_open {
+  border: 1px solid #012169;
+}
+.select_option_selectOptionButton.select_option_open {
+  border: 1px solid #012169;
+  .select_option_chevron {
+    transform: rotate(-180deg);
+  }
+}
+.select-open {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+  transition: z-index 0.3s, opacity 0.3s, visibility 0.3s;
+}
+.store-locator {
+  .image-with-text-section-textarea {
+    .image-with-text-section-header {
+      @include respond-to(xlarge) {
+        font-size: 3.5rem;
+        padding: 3rem 0 1rem;
+      }
+      line-height: 105%;
+    }
+    .image-with-text-section-subheader {
+      @include gw();
+      line-height: 140%;
+      padding-bottom: 2.5rem;
+    }
+    .image-with-text-section-content {
+      @include gw();
+      line-height: 160%;
+    }
+  }
+}
+.stores_storesEvents {
+  padding-top: 2.5rem;
+}
+.stores_storesLink {
+  padding-top: 2.5rem;
+}

@@ -1,0 +1,71 @@
+#MainContent {
+  @include respond-to(xipad) {
+    .custom-shape-divider-top svg {
+      height: 42px;
+    }
+    // .custom-shape-divider-bottom {
+    //   svg {
+    //     fill: rgb(140, 40, 142);
+    //   }
+    // }
+    .image-with-text__text-item {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  @include respond-to(medium) {
+    .button-down {
+      text-align: center;
+      width: 100%;
+    }
+  }
+  .shopify-section {
+    // granola cookie
+    &:first-child {
+      .custom-shape-divider-top.t-1 {
+        display: none;
+      }
+    }
+    &:nth-child(3) {
+      @include respond-to(ipad) {
+        margin-top: -280px;
+        padding-top: 90px;
+
+        .collection-shop .image-with-text {
+          padding: 40rem 5rem 20rem;
+        }
+      }
+      @include respond-to(small) {
+        .image-with-text__heading {
+          font-size: 30vw;
+        }
+        .image-with-text__subheading {
+          margin-top: -40px;
+          font-size: 14vw;
+        }
+      }
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  @include respond-to(ipad) {
+    margin-bottom: -200px;
+  }
+  position: relative;
+  z-index: 11;
+}
+.image-with-text {
+  margin-top: 0 !important;
+}
+.padding {
+  @include respond-to(xmedium) {
+    padding-bottom: 54px;
+  }
+}
+.spaced-section {
+  margin-top: 0;
+  @include respond-to(xipad) {
+    margin-top: 0;
+  }
+}

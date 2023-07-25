@@ -1,0 +1,148 @@
+{% if product.metafields.custom.cross_sell_product %}
+  {% assign sell_product = product.metafields.custom.cross_sell_product.value %}
+  {% assign cv = sell_product.selected_or_first_available_variant %}
+  {% assign current_variant = product.selected_or_first_available_variant %}
+
+  <div class="cross_sell_component__sRCp_">
+    <div data-testid="cross-sell-main" class="cross_sell_main_component__p24Xt cross_sell_main_borderRadiusTop__3JNni">
+      <h3 class="cross_sell_main_heading__c4e6B">Pair it with:</h3>
+      <div class="cross_sell_main_contentWrapper__sshnt">
+        <div class="cross_sell_main_imageWrapper__RTkWu">
+          <a
+            aria-label=""
+            class="component component-anchor-tag anchor_tag_component__zYlYw"
+            target="_blank"
+            rel="noreferrer"
+            href="{{ sell_product.url }}"
+          >
+            <div class="cross_sell_image_component__2YNR1">
+              <div class="cross_sell_image_imageWrapper__qHDWZ cross_sell_image_active__zxbm_">
+                <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                  ><span
+                    style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 133.333% 0px 0px;"
+                  ></span
+                  ><img
+                    style="
+                      position: absolute;
+                      inset: 0px;
+                      box-sizing: border-box;
+                      padding: 0px;
+                      border: none;
+                      margin: auto;
+                      display: block;
+                      width: 0px;
+                      height: 0px;
+                      min-width: 100%;
+                      max-width: 100%;
+                      min-height: 100%;
+                      max-height: 100%;
+                      object-fit: contain;
+                    "
+                    alt="{{ sell_product.title }}"
+                    width="auto"
+                    height="auto"
+                    loading="lazy"
+                    src="{{ sell_product.featured_image | image_url }}"
+                ></span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="cross_sell_main_detailsWrapper__6uGmc">
+          <a
+            aria-label=""
+            class="component component-anchor-tag anchor_tag_component__zYlYw"
+            target="_blank"
+            rel="noreferrer"
+            href="{{ sell_product.url }}"
+          >
+            {{- sell_product.title -}}
+          </a>
+          <div>
+            <span class="cross_sell_main_bold__WaPka" data-testid="discounted-price">
+              {{ cv.price | money }}
+            </span>
+            {% if cv.price > cv.comapre_at_price %}
+              <s data-testid="original-price">
+                {{ cv.comapre_at_price | money }}
+              </s>
+            {% endif %}
+          </div>
+          {% unless sell_product.has_only_default_variant %}
+            <div>
+              <button aria-expanded="false" class="cross_sell_dropdown_pill_component">
+                <span>{{ cv.title }}</span>
+                <svg
+                  width="12"
+                  height="7"
+                  viewBox="0 0 12 7"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="cross_sell_dropdown_pill_icon__924JH"
+                >
+                  <title>Closed</title><path fill-rule="evenodd" clip-rule="evenodd" d="M6 4.8L1.125 0L0.9 0L0.75 0.15L0.75 1.575L0.9 1.95L5.85 6.75H6.225L11.1 1.95L11.25 1.575V0.15L11.1 0L10.95 0L6 4.8Z" fill="#3B3C40"></path>
+                </svg>
+              </button>
+            </div>
+          {% endunless %}
+        </div>
+        <div class="cross_sell_main_ctaWrapper___yH3T">
+          <button class="cross_sell_main_cta__vwqHy">
+            Add both to cart {{ current_variant.price | plus: cv.price | money }}
+          </button>
+        </div>
+      </div>
+    </div>
+    {% unless sell_product.has_only_default_variant %}
+      <div
+        data-testid="cross-sell-color-select"
+        class="cross_sell_color_select_component hidden"
+      >
+        <div class="cross_sell_color_select_contentWrapper__ESWrA">
+          <div
+            class="option-selector option-selector--swatch"
+            data-selector-type="listed"
+            data-option-index="{{ forloop.index0 }}"
+            role="radiogroup"
+            aria-labelledby="{{ option_id }}-Label"
+          >
+            {%- for option in sell_product.options_with_values -%}
+              {%- capture option_id -%}{{ section.id }}-{{ sell_product.id }}-{{ option.name | handle }}-selector{%- endcapture -%}
+
+              <div class="option-selector__btns">
+                {%- for value in option.values -%}
+                  <input
+                    class="opt-btn js-option"
+                    type="radio"
+                    name="{{ option_id }}"
+                    id="{{ option_id }}-opt-{{ forloop.index0 }}"
+                    value="{{ value | escape }}"
+                    data-debug="{{ sell_product.selected_variant }} - {{ option.selected_value }} - {{ value }}"
+
+                    {%- if option.selected_value == value %}
+                      checked
+                    {% endif -%}
+
+                    required
+                  >
+                  <label
+                    class="opt-label"
+
+                    data-swatch="{{ value | replace: '"', '' | downcase }}"
+
+                    for="{{ option_id }}-opt-{{ forloop.index0 }}"
+                    ><span class="opt-label__text">{{ value }}</span></label
+                  >
+                {%- endfor -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    {% endunless %}
+  </div>
+
+  <script type="application/json" data-sell-product-json="{{ sell_product.id }}">
+    {{ sell_product.variants | json }}
+  </script>
+{% endif %}

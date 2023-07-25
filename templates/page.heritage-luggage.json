@@ -1,0 +1,130 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "full_width": false
+      }
+    },
+    "d0cacbd5-f643-42a5-9bb9-f1a6c68a107a": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Updated_Header.jpg",
+        "image_position": "center center",
+        "mobile_image_position": "center center",
+        "height": "adapt",
+        "height_desktop": 600,
+        "height_mobile": 460,
+        "image_link": "",
+        "content_max_width": 800,
+        "subheading": "",
+        "title": "",
+        "title_size": "hsl-style",
+        "use_h1": false,
+        "text": "",
+        "enlarge_text": false,
+        "button_label_1": "",
+        "button_url_1": "",
+        "button_label_2": "",
+        "button_url_2": "",
+        "text_alignment": "center center",
+        "mobile_overlay_under": false,
+        "overlay_style": "shadow",
+        "color_scheme": "1",
+        "heading_highlight_text": "",
+        "heading_highlight_font": false,
+        "heading_highlight_stencil": false,
+        "heading_highlight_color": "rgba(0,0,0,0)",
+        "heading_highlight_gradient": ""
+      }
+    },
+    "heritage-luggage": {
+      "type": "heritage-luggage",
+      "blocks": {
+        "e0dd0fd4-387a-40ea-8562-f34d17953129": {
+          "type": "logo",
+          "disabled": true,
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Logo_HD.png",
+            "bg": "shopify:\/\/shop_images\/Sec_1_Bg.png",
+            "bgc": "#e5f2e4",
+            "image": "shopify:\/\/shop_images\/Sec_1_element.png"
+          }
+        },
+        "408616cb-6892-469f-8ca5-e76ddd878474": {
+          "type": "bg-text",
+          "settings": {
+            "bg": "shopify:\/\/shop_images\/BG_3.png",
+            "bgc": "#e9a893",
+            "subtitle": "The Heritage Collection",
+            "title": "shopify:\/\/shop_images\/Text_2.png",
+            "richtext": "<p>The <strong>golden<\/strong> age of flying.<\/p>",
+            "image": "shopify:\/\/shop_images\/Element_1.png",
+            "image2": "shopify:\/\/shop_images\/Text_4.png",
+            "content": "<p>We design, create and test <\/p><p>our Heritage Luggage <\/p><p>that'll take you from<\/p>"
+          }
+        },
+        "700c86b4-150f-434e-aff0-9034b4cc27da": {
+          "type": "image-row",
+          "settings": {
+            "bg": "shopify:\/\/shop_images\/BG_2_aa5e711e-5019-46af-a80c-41f516442578.png",
+            "bgc": "#e5f2e4",
+            "image": "shopify:\/\/shop_images\/Element_1_10dea7f6-5d84-45c5-bb2c-b5fbe951fe04.png",
+            "image2": "shopify:\/\/shop_images\/Text_with_Effect.png"
+          }
+        },
+        "84f6475f-5138-43ca-8fdf-4b9d3ec4f635": {
+          "type": "image-text",
+          "disabled": true,
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/Logo_HD.png",
+            "bg": "shopify:\/\/shop_images\/Sec_4_BG.png",
+            "bgc": "#e8daa4",
+            "image": "shopify:\/\/shop_images\/Sec_4_element.png",
+            "richtext": "<p>Handmade with Pasco Japanese compressed fibre board and strong wheels for a resilient but flexible feel.<\/p>"
+          }
+        },
+        "c95d10fb-f393-4b7a-b01e-8d6f1b3f6062": {
+          "type": "video",
+          "settings": {
+            "bg": "shopify:\/\/shop_images\/video-img.png",
+            "bgc": "#e8daa4",
+            "image": "shopify:\/\/shop_images\/here.png",
+            "video": "shopify:\/\/files\/videos\/VideoBlack.mp4"
+          }
+        },
+        "717189ed-b615-4233-8230-b8c4d1ae964c": {
+          "type": "line-size",
+          "settings": {
+            "bg": "shopify:\/\/shop_images\/Sec_5_BG.png",
+            "bgc": "#d44a1f",
+            "title": "Select your lining and size.",
+            "title1": "Midnight ink",
+            "title2": "Jungle Nights",
+            "title3": "Flights of Fancy",
+            "title4": "Crossbody",
+            "title5": "Carry-On",
+            "title6": "Check-In"
+          }
+        }
+      },
+      "block_order": [
+        "e0dd0fd4-387a-40ea-8562-f34d17953129",
+        "408616cb-6892-469f-8ca5-e76ddd878474",
+        "700c86b4-150f-434e-aff0-9034b4cc27da",
+        "84f6475f-5138-43ca-8fdf-4b9d3ec4f635",
+        "c95d10fb-f393-4b7a-b01e-8d6f1b3f6062",
+        "717189ed-b615-4233-8230-b8c4d1ae964c"
+      ],
+      "settings": {
+        "full_width": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "d0cacbd5-f643-42a5-9bb9-f1a6c68a107a",
+    "heritage-luggage"
+  ]
+}

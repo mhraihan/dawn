@@ -1,0 +1,102 @@
+<div class="container container--image featured-brands-slider">
+  <div class="image-slider">
+    {% for block in section.blocks %}
+      {% if block.settings.image != blank %}
+        <article class="featured-brands-slider-content__container" style="width: 100%; display: inline-block;">
+          <div class="featured-brands-slider__overlay featured-brands-slider__overlay--with-overlay">
+            <div class="text-column">
+              {% if block.settings.title != blank %}
+                <h3 class="featured-brands-slider-content__heading-text">
+                  {{ block.settings.title }}
+                </h3>
+              {% endif %}
+              {% if block.settings.content != blank %}
+                <div class="featured-brands-slider-content__body-text">
+                  {{ block.settings.content }}
+                </div>
+              {% endif %}
+            </div>
+            {% if block.settings.btn and block.settings.link %}
+              <div class="cta-column">
+                <a href="{{ block.settings.link }}" class="featured-brands-slider-content__cta-link" tabindex="-1">
+                  {{ block.settings.btn }}
+                </a>
+              </div>
+            {% endif %}
+          </div>
+          <img
+            src="{{ block.settings.image | image_url }}"
+            alt=""
+            width="{{ block.settings.image.width }}"
+            height="{{ block.settings.image.height }}"
+            class="featured-brands-slider-content__image"
+            loading="eager"
+          >
+          {% if block.settings.btn and block.settings.link %}
+            <a href="{{ block.settings.link }}" class="featured-brands-slider-content__mobile-link" tabindex="-1">
+              {{- block.settings.btn -}}
+            </a>
+          {% endif %}
+        </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+<div style="padding-bottom: 72px" class="d-none d-md-block"></div>
+<div style="padding-bottom: 16px" class="d-md-none"></div>
+
+{% schema %}
+{
+  "name": "Brands Slider",
+  "class": "section-brands-slider",
+  "settings": [
+
+  ],
+  "blocks": [
+    {
+      "type": "slider",
+      "name": "Slider",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "info": "Optional"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "info": "Optional"
+        },
+        {
+          "type": "text",
+          "id": "btn",
+          "label": "Button",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brands Slider",
+      "settings": {
+      },
+      "blocks": [
+
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,434 @@
+{
+  "sections": {
+    "carry-on": {
+      "type": "page-carry-ons",
+      "blocks": {
+        "24a1a554-4cdb-4f7a-afe7-0139978cc66e": {
+          "type": "product",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/away-sizing-carry-on.webp",
+            "product": "gbl007",
+            "title": "The Carry on",
+            "richtext": "<p>Designed to comply with the carry-on size restrictions of as many airlines as possible, this bag will fit in the overhead bin of almost any flight.<\/p>",
+            "icon1": "shopify:\/\/shop_images\/Capacity.svg",
+            "title1": "5-7 Outfits",
+            "icon2": "shopify:\/\/shop_images\/trip.svg",
+            "title2": "3-5 days",
+            "icon3": "shopify:\/\/shop_images\/fly.svg",
+            "title3": "Local flights"
+          }
+        },
+        "e73147b1-12cd-42a4-93da-0dfe501f72c2": {
+          "type": "product",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/away-sizing-carry-on.webp",
+            "product": "gbl007",
+            "title": "The Bigger Carry on",
+            "richtext": "<p>This size was made to fit perfectly in the overhead bin of major US airlines, but may need to be checked on smaller planes.<\/p>",
+            "icon1": "shopify:\/\/shop_images\/7-8.svg",
+            "title1": "6-9 outfits",
+            "icon2": "shopify:\/\/shop_images\/numberdays.svg",
+            "title2": "4-7 days",
+            "icon3": "shopify:\/\/shop_images\/l-plane.svg",
+            "title3": "Longer flights"
+          }
+        }
+      },
+      "block_order": [
+        "24a1a554-4cdb-4f7a-afe7-0139978cc66e",
+        "e73147b1-12cd-42a4-93da-0dfe501f72c2"
+      ],
+      "settings": {}
+    },
+    "carry-on-airline": {
+      "type": "page-carry-ons-airline",
+      "blocks": {
+        "60da84bf-e74f-4981-9a65-e66a209b031d": {
+          "type": "airline",
+          "settings": {
+            "title": "Aegean Airlines",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "8e3c0fdb-74d6-4d94-a9b7-67f034ebed7f": {
+          "type": "airline",
+          "settings": {
+            "title": "Aer Lingus",
+            "show1": true,
+            "show2": false
+          }
+        },
+        "81e5a285-3287-4696-a2a1-8afa8d675869": {
+          "type": "airline",
+          "settings": {
+            "title": "Aeroflot",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "db786185-3e48-4a11-8968-0e98bfa032b4": {
+          "type": "airline",
+          "settings": {
+            "title": "AeroMexico",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "03b785ee-703d-4875-9a61-853144a47ab9": {
+          "type": "airline",
+          "settings": {
+            "title": "Air Baltic",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "105ec2a1-64a6-497e-9503-7c905d30da16": {
+          "type": "airline",
+          "settings": {
+            "title": "Air Canada",
+            "show1": true,
+            "show2": false
+          }
+        },
+        "a1c6aa35-5ecf-4db5-a060-f19e33423b07": {
+          "type": "airline",
+          "settings": {
+            "title": "Air Europa",
+            "show1": true,
+            "show2": false
+          }
+        },
+        "170f5538-b7e4-471b-bcd9-c7e26450ed81": {
+          "type": "airline",
+          "settings": {
+            "title": "Air France",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "b51955b9-31f0-4e21-815a-6629411c2ee1": {
+          "type": "airline",
+          "settings": {
+            "title": "Air India",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "078abbaf-f0db-4152-b8b7-3ea63d7f63e1": {
+          "type": "airline",
+          "settings": {
+            "title": "Alaska Airlines",
+            "show1": true,
+            "show2": false
+          }
+        },
+        "e4e25045-6600-4219-a450-506c5fa0d878": {
+          "type": "airline",
+          "settings": {
+            "title": "Alitalia",
+            "show1": true,
+            "show2": false
+          }
+        },
+        "06dc13df-60f1-4c91-a23b-6bf75c48409a": {
+          "type": "airline",
+          "settings": {
+            "title": "All Nippon Airways",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "e304ccb7-5df0-49b0-b3f2-117245e2b80d": {
+          "type": "airline",
+          "settings": {
+            "title": "Allegiant",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "3e4096a8-65ce-47bd-9282-c9b37f1f382a": {
+          "type": "airline",
+          "settings": {
+            "title": "American Airlines",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "453b7574-d834-41f8-9181-3f7093408e8b": {
+          "type": "airline",
+          "settings": {
+            "title": "Austrian Airlines",
+            "show1": true,
+            "show2": false
+          }
+        },
+        "18cfa8a2-4164-416c-9019-7f6eaf19d1a5": {
+          "type": "airline",
+          "settings": {
+            "title": "British Airways",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "71a3acbe-1ba3-43eb-9289-1673d4dc99e0": {
+          "type": "airline",
+          "settings": {
+            "title": "Cathay Pacific",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "d058935a-4909-484c-92b8-e546ed84ab60": {
+          "type": "airline",
+          "settings": {
+            "title": "China Southern",
+            "show1": true,
+            "show2": false
+          }
+        },
+        "6a7e68fb-0e14-4f03-86ac-abe0542c7300": {
+          "type": "airline",
+          "settings": {
+            "title": "Delta",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "951a51fa-b80c-4d39-ad9d-9a9ad533002a": {
+          "type": "airline",
+          "settings": {
+            "title": "easyJet",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "ee2ea5f5-6791-4045-8eb4-d9abecf370b4": {
+          "type": "airline",
+          "settings": {
+            "title": "Ethiopian",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "b45a5eb2-69aa-4178-8a5c-0c92edff51eb": {
+          "type": "airline",
+          "settings": {
+            "title": "Frontier",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "438080d8-3d54-471e-88a6-34dbedab2e27": {
+          "type": "airline",
+          "settings": {
+            "title": "Iberia",
+            "show1": true,
+            "show2": false
+          }
+        },
+        "b23c1f44-ea17-4af8-b084-8a4a1ca5fd26": {
+          "type": "airline",
+          "settings": {
+            "title": "Icelandair",
+            "show1": true,
+            "show2": false
+          }
+        },
+        "4635a1c9-0df3-44f5-a9fe-e68ba7a6ec80": {
+          "type": "airline",
+          "settings": {
+            "title": "JetBlue",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "3de2d440-af14-433b-9825-b95ad147c084": {
+          "type": "airline",
+          "settings": {
+            "title": "KLM",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "849d7d14-3a94-4fef-a6a7-9c509c1abcf9": {
+          "type": "airline",
+          "settings": {
+            "title": "LOT Polish Airlines",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "eb68384b-81fb-4f9d-b77c-1dd1c33979e7": {
+          "type": "airline",
+          "settings": {
+            "title": "Lufthansa",
+            "show1": true,
+            "show2": false
+          }
+        },
+        "e2460775-89dc-4e66-893f-7da28577d8db": {
+          "type": "airline",
+          "settings": {
+            "title": "Norwegian",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "9e2e8c0b-4266-4a0c-a4aa-94a3ee19462f": {
+          "type": "airline",
+          "settings": {
+            "title": "Porter Air",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "37f715d6-ab9c-411a-af38-490c4d2faef4": {
+          "type": "airline",
+          "settings": {
+            "title": "Qantas",
+            "show1": true,
+            "show2": false
+          }
+        },
+        "2d340f45-a36e-4863-a835-a069e8cd0390": {
+          "type": "airline",
+          "settings": {
+            "title": "Scandinavian Airlines",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "c62fedf7-dac3-4802-983a-757cf88ca525": {
+          "type": "airline",
+          "settings": {
+            "title": "Southwest",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "52fdc68a-27ff-475c-99c4-e7806c41c585": {
+          "type": "airline",
+          "settings": {
+            "title": "Spirit",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "5c93567e-81d1-42d8-bfe8-0eab36f90def": {
+          "type": "airline",
+          "settings": {
+            "title": "Sun Country",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "0bb69fdc-8d1c-4a02-9c80-d0709c37df3c": {
+          "type": "airline",
+          "settings": {
+            "title": "Tap Air Portugal",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "b9d027da-dac7-4d95-8e3b-74dc929441ab": {
+          "type": "airline",
+          "settings": {
+            "title": "United",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "16b1aff8-46cc-4576-827a-3815f91634ee": {
+          "type": "airline",
+          "settings": {
+            "title": "Virgin Atlantic",
+            "show1": true,
+            "show2": false
+          }
+        },
+        "3cec6a80-53cc-420d-be09-9a0f527ac95b": {
+          "type": "airline",
+          "settings": {
+            "title": "Vueling",
+            "show1": true,
+            "show2": false
+          }
+        },
+        "55679c35-eadf-4e52-921c-27a0005bf920": {
+          "type": "airline",
+          "settings": {
+            "title": "WestJet",
+            "show1": true,
+            "show2": true
+          }
+        },
+        "c3dfece2-d6a5-49cd-8ad3-8c43afcfa02c": {
+          "type": "airline",
+          "settings": {
+            "title": "Wizz Air",
+            "show1": true,
+            "show2": true
+          }
+        }
+      },
+      "block_order": [
+        "60da84bf-e74f-4981-9a65-e66a209b031d",
+        "8e3c0fdb-74d6-4d94-a9b7-67f034ebed7f",
+        "81e5a285-3287-4696-a2a1-8afa8d675869",
+        "db786185-3e48-4a11-8968-0e98bfa032b4",
+        "03b785ee-703d-4875-9a61-853144a47ab9",
+        "105ec2a1-64a6-497e-9503-7c905d30da16",
+        "a1c6aa35-5ecf-4db5-a060-f19e33423b07",
+        "170f5538-b7e4-471b-bcd9-c7e26450ed81",
+        "b51955b9-31f0-4e21-815a-6629411c2ee1",
+        "078abbaf-f0db-4152-b8b7-3ea63d7f63e1",
+        "e4e25045-6600-4219-a450-506c5fa0d878",
+        "06dc13df-60f1-4c91-a23b-6bf75c48409a",
+        "e304ccb7-5df0-49b0-b3f2-117245e2b80d",
+        "3e4096a8-65ce-47bd-9282-c9b37f1f382a",
+        "453b7574-d834-41f8-9181-3f7093408e8b",
+        "18cfa8a2-4164-416c-9019-7f6eaf19d1a5",
+        "71a3acbe-1ba3-43eb-9289-1673d4dc99e0",
+        "d058935a-4909-484c-92b8-e546ed84ab60",
+        "6a7e68fb-0e14-4f03-86ac-abe0542c7300",
+        "951a51fa-b80c-4d39-ad9d-9a9ad533002a",
+        "ee2ea5f5-6791-4045-8eb4-d9abecf370b4",
+        "b45a5eb2-69aa-4178-8a5c-0c92edff51eb",
+        "438080d8-3d54-471e-88a6-34dbedab2e27",
+        "b23c1f44-ea17-4af8-b084-8a4a1ca5fd26",
+        "4635a1c9-0df3-44f5-a9fe-e68ba7a6ec80",
+        "3de2d440-af14-433b-9825-b95ad147c084",
+        "849d7d14-3a94-4fef-a6a7-9c509c1abcf9",
+        "eb68384b-81fb-4f9d-b77c-1dd1c33979e7",
+        "e2460775-89dc-4e66-893f-7da28577d8db",
+        "9e2e8c0b-4266-4a0c-a4aa-94a3ee19462f",
+        "37f715d6-ab9c-411a-af38-490c4d2faef4",
+        "2d340f45-a36e-4863-a835-a069e8cd0390",
+        "c62fedf7-dac3-4802-983a-757cf88ca525",
+        "52fdc68a-27ff-475c-99c4-e7806c41c585",
+        "5c93567e-81d1-42d8-bfe8-0eab36f90def",
+        "0bb69fdc-8d1c-4a02-9c80-d0709c37df3c",
+        "b9d027da-dac7-4d95-8e3b-74dc929441ab",
+        "16b1aff8-46cc-4576-827a-3815f91634ee",
+        "3cec6a80-53cc-420d-be09-9a0f527ac95b",
+        "55679c35-eadf-4e52-921c-27a0005bf920",
+        "c3dfece2-d6a5-49cd-8ad3-8c43afcfa02c"
+      ],
+      "settings": {
+        "title": "Have a specific airline in mind?",
+        "richtext": "<p>If you've got a trip coming up (or a frequent flier status to maintain), use the chart below to see which carry-on will fit on your flights. We tested our carry-ons at JFK, EWR, LHR, and LGW to see how each size fits on the below airlines.<\/p>",
+        "subtitle": "Keep in mind that this info can change at any time, but don't worry: we'll do our best to keep it up to date. You'll also want to check the airline that's operating the flight, which may be different from the airline you booked with.",
+        "icon1": "shopify:\/\/shop_images\/carry-case_1a92ca3a-1178-458e-906f-b5d33604f7d4.svg",
+        "title1": "The Carry on",
+        "icon2": "shopify:\/\/shop_images\/big-carry-case_05958ab8-a8b7-4940-8be9-79cf12c810b5.svg",
+        "title2": "The Bigger Carry on",
+        "contact": "<p>This information is accurate as of August 12, 2020. The results here reflect our findings using the sizers at JFK, EWR, LHR, and LGW, but note that the sizers used at your airport may be different. Also, any airline can still make you gate check your bag if overhead space is full—but every trip has its surprises.<\/p><p><\/p><p><\/p><p>Questions?<a href=\"\/pages\/contact-us\" title=\"Contact Us\">Ask Away.<\/a><\/p>"
+      }
+    }
+  },
+  "order": [
+    "carry-on",
+    "carry-on-airline"
+  ]
+}

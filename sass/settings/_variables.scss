@@ -1,0 +1,12 @@
+:root {
+  --announcement: 80px;
+  --header: 97px;
+  @media (max-width: 990px) {
+    --announcement: 40px;
+    --header: 97px;
+  }
+  @media (max-width: 768px) {
+    --announcement: 40px;
+    --header: 97px;
+  }
+}

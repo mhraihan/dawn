@@ -1,0 +1,102 @@
+.multicolumn-list {
+  align-items: center;
+}
+
+.multicolumn-list__item {
+  @include respond-to(xmedium) {
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+div.multicolumn-card__info {
+  padding: 0 1.5rem;
+
+  p {
+    &.heading {
+      font-weight: 400;
+      line-height: 120%;
+      font-size: 2rem;
+      letter-spacing: -0.01em;
+    }
+    font-weight: 400;
+    line-height: 120%;
+    font-size: 2rem;
+    letter-spacing: -0.01em;
+    margin: 0;
+    max-width: 100%;
+    font-size: 1.125rem;
+    line-height: 140%;
+    @include respond-to(xipad) {
+      font-size: 1rem;
+    }
+  }
+}
+
+.page-single-store {
+  .multicolumn {
+    @include respond-to(xmedium) {
+      .multicolumn-card {
+        display: flex;
+      }
+    }
+
+    .title {
+      @include gw();
+      font-size: 24px;
+      letter-spacing: -0.01em;
+      line-height: 29px;
+      text-align: center;
+      @include respond-to(medium) {
+        font-size: 22px;
+      }
+    }
+
+    .title-wrapper-with-link {
+      justify-content: center;
+    }
+  }
+
+  div.multicolumn-card__info {
+    p.heading {
+      @include gw();
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      line-height: 110%;
+      text-align: center;
+      text-transform: uppercase;
+      @include respond-to(medium) {
+        font-size: 15px;
+        text-align: left;
+      }
+    }
+
+    p {
+      font-size: 15px;
+      letter-spacing: -0.15px;
+      line-height: 18px;
+      text-align: center;
+      @include respond-to(medium) {
+        font-size: 14px;
+        text-align: left;
+      }
+    }
+  }
+  @include respond-to(xmedium) {
+    .multicolumn-card__image-wrapper.multicolumn-card__image-wrapper--third-width.multicolumn-card-spacing {
+      width: 30%;
+    }
+
+    .multicolumn-list:not(.slider) .center .multicolumn-card__info {
+      padding-right: 0 !important;
+      padding-top: 0 !important;
+      text-align: left;
+      padding-left: 1.5rem !important;
+      width: 70%;
+    }
+  }
+}

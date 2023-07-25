@@ -1,0 +1,27 @@
+$font__main: sans-serif;
+$font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+$font__pre: "Courier 10 Pitch", Courier, monospace;
+$font__line-height-body: 1.5;
+$font__line-height-pre: 1.6;
+
+/* font settings */
+/* global */
+
+$font-body: 'Futura Lt BT';
+$font-store: 'Futura Lt BT';
+$font-heading: 'Futura Md BT';
+$font-section-heading: #{'"{{settings.font_section_heading}}"'};
+$font-captions: 'Futura Md BT';
+$font-buttons:  'Futura Lt BT';
+$font-nav: 'Futura Md BT';
+$play: 'Playfair Display', serif;
+
+/* font mixin */
+@mixin font($ff: "Helvetica, Arial, sans-serif",$weight: false,$style: false,  $lh: false, $size: false, $colour: false ) {
+    font-family:$ff ;
+    @if $size { font-size: $size; }
+    @if $colour { color: $colour; }
+    @if $weight { font-weight: $weight; }
+    @if $lh { line-height: $lh; }
+    @if $style { font-style: $style; }
+}

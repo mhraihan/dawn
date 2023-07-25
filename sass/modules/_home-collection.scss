@@ -1,0 +1,304 @@
+.featured_products_section_textBanner {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem 0;
+  text-align: center;
+  h2 {
+    span {
+      &:first-of-type {
+        color: rgb(var(--color-foreground));
+        display: inline-block;
+        @include ld();
+        font-size: 1.25rem;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 105%;
+        margin-bottom: 0.5rem;
+        text-transform: none;
+      }
+      &:last-of-type {
+        color: rgb(var(--color-foreground));
+        display: inline-block;
+        @include gw();
+        font-size: 3rem;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        line-height: 105%;
+        margin: 0;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+.featured_products_section_tileContent.featured_products_section_bottomPadding {
+  padding-bottom: 1rem;
+}
+.block_component {
+  display: flex;
+  justify-content: flex-start;
+}
+.featured_products_section_block {
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: visible;
+  position: relative;
+  z-index: 0;
+}
+.featured_products_section_product {
+  flex-basis: 50%;
+}
+.block_element_component {
+  min-height: 1px;
+}
+.featured_products_section_tile {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+.focus_component {
+  outline: none;
+}
+.zoom_image_component {
+  overflow: hidden;
+  width: 100%;
+}
+.featured_products_section_productInfo {
+  margin-right: 1.5rem;
+  padding: 1rem 0 0 1rem;
+  @include respond-to(ipad) {
+    padding-left: 0;
+    min-height: 6rem;
+    text-align: center;
+    margin: 0;
+  }
+}
+.featured_products_section_productInfoTitle {
+  color: rgb(var(--color-foreground));
+  @include gw();
+  font-size: 0.875rem;
+  line-height: 140%;
+  @include respond-to(ipad) {
+    font-size: 1rem;
+  }
+  .template-collection & {
+    line-height: 1.4;
+    margin-top: 0.5rem;
+    padding: 0 16px;
+  }
+}
+.featured_products_section_productInfoPrice {
+  color: rgb(var(--color-foreground));
+  @include gw();
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 140%;
+  margin-top: 0.25rem;
+  text-transform: uppercase;
+}
+.zoom-image-component {
+  overflow: hidden;
+  width: 100%;
+  &:hover {
+    .optimized_picture_aspect_ratio {
+      transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+      transform: scale(1);
+    }
+  }
+  .optimized_picture_aspect_ratio {
+    transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: scale(1);
+  }
+}
+@media screen and (min-width: 1280px) {
+  .featured_products_section_wideScreensMaxWidth {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1920px;
+  }
+  .featured_products_section_textBanner {
+    h2 {
+      span {
+        &:first-of-type {
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+        }
+        &:last-of-type {
+          font-size: 3.5rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 1024px) {
+  .featured_products_section_tileContent {
+    padding: 0 3rem;
+  }
+  .featured_products_section_tileContent.featured_products_section_bottomPadding {
+    padding-bottom: 3.5rem;
+  }
+  .featured_products_section_product {
+    flex-basis: 25%;
+  }
+  .block_element_component {
+    flex: 25%;
+    max-width: 25%;
+  }
+}
+.optimized_picture_aspect_ratio {
+  padding-top: 125% !important;
+  @include respond-to(medium) {
+    padding-top: 137% !important;
+  }
+  position: relative;
+  width: 100%;
+  img {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    -o-object-fit: cover;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    border-radius: 14px;
+  }
+}
+.cta_cta__VOQed.cta_iconRight__5NNbY {
+  .cta-icon-wrapper-div {
+    line-height: 0;
+    margin-top: -2px;
+  }
+}
+
+/* collection product banner */
+
+.content-tile-medium-component {
+  height: 0;
+  position: relative;
+  scroll-margin-top: 3.5em;
+  // width: 100%;
+  // width: 50%;
+  padding-top: 30.33333%;
+  // flex: 50%;
+  margin-bottom: 5rem;
+  scroll-margin-top: 0;
+  // flex: calc(25% - 10px);
+  width: calc(25% - 10px);
+  @include respond-to(medium) {
+    // flex: calc(50% - 10px);
+    width: calc(50% - 10px);
+
+    padding-top: 66.66667%;
+    margin-bottom: 2.5rem;
+  }
+  &:hover {
+    .cta_animationEnter {
+      svg {
+        transform: translateX(8px);
+      }
+    }
+  }
+}
+.content_tile_medium_link {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.content_tile_medium_wrap {
+  position: absolute;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  gap: 10px;
+}
+.content_tile_medium_mediaBox {
+  flex: 1 0 calc(50% - 10px);
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.content_tile_medium_container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 50%;
+  height: auto;
+  overflow: hidden;
+  text-align: left;
+
+  padding: 0 48px;
+  width: 400px;
+  border-radius: 14px;
+  height: 100%;
+  justify-content: center;
+  @include respond-to(medium) {
+    width: 272px;
+    padding: 0 16px;
+  }
+}
+.content_tile_medium_head {
+  letter-spacing: -0.01em;
+  line-height: 120%;
+  text-align: left;
+  font-size: 32px;
+  margin-bottom: 16px;
+  @include respond-to(medium) {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+}
+.content_tile_medium_desc {
+  line-height: 140%;
+  font-size: 14px;
+  @include respond-to(medium) {
+    font-size: 12px;
+    line-height: 120%;
+  }
+}
+.content_tile_medium_cta {
+  margin-top: 16px;
+}
+.cta_component {
+  @include gw();
+  text-transform: uppercase;
+}
+.cta_cta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  line-height: 1.125;
+  letter-spacing: 0.05em;
+  text-align: left;
+  background: #0000;
+  color: #111;
+  font-weight: 500;
+}
+.cta_cta.cta_iconRight {
+  .cta_ctaIcon {
+    line-height: 0;
+    margin-top: -2px;
+  }
+}
+.cta_animationEnter {
+  svg {
+    transform: translateX(0);
+    transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+}
+.mh-video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,13 @@
+.remodal {
+   @include respond-to(larger){
+   	 max-width: 900px;
+   	 .template-collection &{
+   	 	max-height: 600px;
+    	overflow-y: hidden;
+   	 }
+   }
+}
+button.remodal-close {
+    left: auto;
+    right: 10px;
+}

@@ -1,0 +1,36 @@
+{% comment %}
+  {% if product.metafields.custom.product_extra_information.value.title.value %}
+    {% liquid
+      assign class = 'mt-1 justify-content-start'
+      if product.metafields.custom.product_extra_information.value.icon_display.value
+        assign class = 'mt-2 flex-row-reverse justify-content-end'
+      endif
+    %}
+    <div class="mh-subtitle flex align-items-end {{ class }}">
+      <div class="product-subtitle">
+        {{ product.metafields.custom.product_extra_information.value.title.value }}
+      </div>
+      <img
+        width="auto"
+        height="auto"
+        loading="eager"
+        src="{{ product.metafields.custom.product_extra_information.value.icon.value | image_url }}"
+        alt="{{ product.metafields.custom.product_extra_information.value.title.value }}"
+      >
+    </div>
+  {% endif %}
+{% endcomment %}
+
+{% if product.price_min >= 9999 %}
+  <div class="mh-subtitle flex align-items-end mt-1 justify-content-start align-items-center">
+    <div class="product-subtitle">Lifetime Guarantee - Free Shipping</div>
+    <img
+      width="auto"
+      height="auto"
+      loading="eager"
+      src="{{ 'aircraft.gif' | asset_url }}"
+      alt="{{ product.title }}"
+      style="width: 32px;"
+    >
+  </div>
+{% endif %}

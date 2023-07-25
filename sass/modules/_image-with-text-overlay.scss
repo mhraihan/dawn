@@ -1,0 +1,6 @@
+
+.overlay-text--for-banner .overlay-text__inner {
+    @include respond-to(ipad) {
+        padding: 100px 70px;
+    }
+}
